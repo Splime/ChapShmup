@@ -36,17 +36,17 @@ void Game::draw(sf::RenderWindow& window) {
 	window.draw(bg2);
 	window.draw(bg3);
 	//Draw the bullets
-	for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); itr++)
-		itr->draw(window);
+	for (GameObject& b : bullets)
+		b.draw(window);
 	//Draw enemies
-	for (list<Enemy>::iterator itr = enemies.begin(); itr != enemies.end(); itr++)
-		itr->draw(window);
+	for (Enemy& e : enemies)
+		e.draw(window);
 	//Draw the player
 	p.draw(window);
 
 	//Draw GUI Elements
-	for (list<sf::Sprite>::iterator itr = guiElements.begin(); itr != guiElements.end(); itr++)
-		window.draw(*itr);
+	for (sf::Sprite& spr : guiElements)
+		window.draw(spr);
 }
 
 
@@ -78,18 +78,18 @@ void Game::update(float secondsPassed) {
 			break;
 	}
 	//Update the bullets
-	for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); itr++)
-		itr->update(secondsPassed);
+	for (GameObject& b : bullets)
+		b.update(secondsPassed);
 	//Update enemies
-	for (list<Enemy>::iterator itr = enemies.begin(); itr != enemies.end(); itr++)
-		itr->update(secondsPassed);
+	for (Enemy& e : enemies)
+		e.update(secondsPassed);
 	//Check for bullet collisions
-	for(list<Enemy>::iterator eitr = enemies.begin(); eitr != enemies.end(); eitr++) {
-		for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); itr++) {
-			if (eitr->rectCollide(*itr)) {
-				itr->kill();
+	for(Enemy& e : enemies) {
+		for (GameObject& b : bullets) {
+			if (e.rectCollide(b)) {
+				b.kill();
 				//Do something with the enemy here
-				eitr->damage(p.getBulletDamage());
+				e.damage(p.getBulletDamage());
 				break;
 			}
 		}
@@ -97,17 +97,17 @@ void Game::update(float secondsPassed) {
 	//What about collisions with enemy bullets?
 
 	//Or enemies themselves crashing?
-    for (list<Enemy>::iterator itr = enemies.begin(); itr != enemies.end(); itr++) {
-        if (itr->rectCollide(p)) {
+    for (Enemy& e : enemies) {
+        if (e.rectCollide(p)) {
             p.damage(CRASH_DAMAGE);
-            itr->kill();
+            e.kill();
         }
     }
 	//Sweep for out of bounds bullets
-	for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); itr++) {
-		if (itr->getX() + itr->getWidth() < 0 || itr->getX() > WINDOW_WIDTH
-			|| itr->getY() + itr->getHeight() < 0 || itr->getY() > WINDOW_HEIGHT)
-			itr->kill();
+	for (GameObject& b : bullets) {
+		if (b.getX() + b.getWidth() < 0 || b.getX() > WINDOW_WIDTH
+			|| b.getY() + b.getHeight() < 0 || b.getY() > WINDOW_HEIGHT)
+			b.kill();
 	}
 	//Sweep for out of bounds enemies
 
