@@ -1,0 +1,15 @@
+Chap Shmup Plan
+
+=== Sept 10, 2012 ===
+So as of now, this is definitely a side-project, schoolwork comes first, bla bla bla. First major milestone is a little demo level, with some graphics that are marginally better than these ones, a half-decent GUI, maybe some enemies that actually shoot back! Also, definitely get the full plan together by then.
+
+From there, the plan is to make a game where the player's ship has upgradable and customizable features, so there's replayability and such. Games must be saveable! Also, a method of ending levels and allowing the player to choose where to travel.
+The plot is that the you are on Earth c. 3000 CE, but an invasion of the planet by a small rebel group requires you to evacuate, quickly, to a friend's place on Pluto (which is unaffected thanks to its non-planet status). Afterwards, you travel from location to location (i.e. planets, floating bases, jump ports, etc.), and each trip is a shmup level (all procedurally generated). There will be a story to guide the player along to fulfilling certain available goals, such as destroying the rebellion, creating a new home, or whatever. It's basically a silly space-RPG.
+
+TODO Soon:
+- Enemy presets: given a certain label, create a type of enemy (i.e. moving, shooting, bigger, etc.)
+- Better level: setup a sort of demo level that ends!
+- Better graphics: actually spend some time on the graphics, and add some SFX like shitty explosions
+- Sounds: Shitty laser sounds
+- GUI: Show shit about our health
+- Collision boxes: tweak the enemies/game objects so that their collision area can be a bit smaller than their image rect, or allow multiple rects?
