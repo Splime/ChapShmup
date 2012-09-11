@@ -5,6 +5,8 @@ GameObject::GameObject(void) {
 	ax = ay = 0;
 	max_vx = max_vy = MAX_SPEED;
 	screenConstrained = false;
+
+	dead = false;
 }
 
 GameObject::~GameObject(void) {

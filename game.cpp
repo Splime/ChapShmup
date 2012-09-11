@@ -39,7 +39,7 @@ void Game::draw(sf::RenderWindow& window) {
 	for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); itr++)
 		itr->draw(window);
 	//Draw enemies
-	for (list<GameObject>::iterator itr = enemies.begin(); itr != enemies.end(); itr++)
+	for (list<Enemy>::iterator itr = enemies.begin(); itr != enemies.end(); itr++)
 		itr->draw(window);
 	//Draw the player
 	p.draw(window);
@@ -66,7 +66,7 @@ void Game::update(float secondsPassed) {
 	for (list<SpawnData>::iterator itr = spawns.begin(); itr != spawns.end(); ) {
 		if (itr->spawnTime < gameTime) {
 			//Add an enemy
-			GameObject e;
+			Enemy e;
 			e.loadTexture(ENEMY_TEXTURE);
 			e.setPosition(itr->x + GAME_ZONE_X, itr->y);
 			e.setVelocity(itr->vx, itr->vy);
@@ -81,39 +81,49 @@ void Game::update(float secondsPassed) {
 	for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); itr++)
 		itr->update(secondsPassed);
 	//Update enemies
-	for (list<GameObject>::iterator itr = enemies.begin(); itr != enemies.end(); itr++)
+	for (list<Enemy>::iterator itr = enemies.begin(); itr != enemies.end(); itr++)
 		itr->update(secondsPassed);
 	//Check for bullet collisions
-	for(list<GameObject>::iterator eitr = enemies.begin(); eitr != enemies.end(); ) {
-		bool enemyKilled = false;
-		for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); ) {
+	for(list<Enemy>::iterator eitr = enemies.begin(); eitr != enemies.end(); eitr++) {
+		for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); itr++) {
 			if (eitr->rectCollide(*itr)) {
-				itr = bullets.erase(itr);
+				itr->kill();
 				//Do something with the enemy here
-				enemyKilled = true;
+				eitr->damage(p.getBulletDamage());
 				break;
 			}
-			else {
-				itr++;
-			}
 		}
-		if (enemyKilled)
-		{
-			eitr = enemies.erase(eitr);
-		}
-		else
-			eitr++;
 	}
+	//What about collisions with enemy bullets?
+
+	//Or enemies themselves crashing?
+    for (list<Enemy>::iterator itr = enemies.begin(); itr != enemies.end(); itr++) {
+        if (itr->rectCollide(p)) {
+            p.damage(CRASH_DAMAGE);
+            itr->kill();
+        }
+    }
 	//Sweep for out of bounds bullets
-	for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); ) {
+	for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); itr++) {
 		if (itr->getX() + itr->getWidth() < 0 || itr->getX() > WINDOW_WIDTH
 			|| itr->getY() + itr->getHeight() < 0 || itr->getY() > WINDOW_HEIGHT)
-			itr = bullets.erase(itr);
-		else
-			itr++;
+			itr->kill();
 	}
-	//Deal with dead/out of bounds enemies
+	//Sweep for out of bounds enemies
 
+	//Garbage Collection!
+    for(list<Enemy>::iterator eitr = enemies.begin(); eitr != enemies.end(); ) {
+        if(eitr->isDead())
+            eitr = enemies.erase(eitr);
+        else
+            eitr++;
+    }
+    for (list<GameObject>::iterator itr = bullets.begin(); itr != bullets.end(); ) {
+        if (itr->isDead())
+            itr = bullets.erase(itr);
+        else
+            itr++;
+    }
 
 	//Update the player
 	p.update(secondsPassed);
@@ -122,9 +132,9 @@ void Game::update(float secondsPassed) {
 void Game::loadLevel(string filename) {
 	ifstream level;
 	if (EXTERNAL_FILE_MODE)
-		level.open(PROJECT_DIRECTORY + filename);
+		level.open((PROJECT_DIRECTORY + filename).c_str());
 	else
-		level.open(filename);
+		level.open(filename.c_str());
 	if (!level.is_open())
 		return;
 	while (!level.eof()) {

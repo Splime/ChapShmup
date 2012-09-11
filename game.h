@@ -2,6 +2,7 @@
 #include "chap_header.h"
 #include "gameObject.h"
 #include "player.h"
+#include "enemy.h"
 
 struct SpawnData;
 
@@ -14,13 +15,13 @@ public:
 	void draw(sf::RenderWindow& window);
 	void update(float secondsPassed);
 	void loadLevel(string filename);
-	
+
 
 private:
 	Player p;
 	list<GameObject> bullets;
 	list<SpawnData> spawns;
-	list<GameObject> enemies;
+	list<Enemy> enemies;
 	list<sf::Sprite> guiElements;
 	sf::Sprite bg1, bg2, bg3; //Background images
 

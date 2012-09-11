@@ -14,11 +14,13 @@ public:
 	void setVelocity(float x, float y);
 	void setAcceleration(float x, float y);
 	void setPosition(float x, float y);
+	void kill() { dead = true; }
 
 	float getX() { return px; }
 	float getY() { return py; }
 	int getWidth() { return sprite.getGlobalBounds().width; }
 	int getHeight() { return sprite.getGlobalBounds().height; }
+	bool isDead() { return dead; }
 	bool rectCollide(GameObject& other); //Rectangular Collision
 
 protected:
@@ -29,5 +31,7 @@ protected:
 	float ax, ay; //Acceleration, x and y components
 	float px, py; //Position
 	bool screenConstrained;
+
+	bool dead;
 };
 

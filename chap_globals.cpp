@@ -14,17 +14,20 @@ int GAME_ZONE_HEIGHT = 720;
 string GAME_MODE = "Main Menu";
 
 float PLAYER_SPEED = 800.0;
-float PLAYER_ACCEL = 1000.0;
-float PLAYER_DECEL = 400.0;
+float PLAYER_ACCEL = 2000.0;
+float PLAYER_DECEL = 2000.0;
 float MAX_SPEED = 1000000.0;
 bool INVERTED_Y_AXIS = false;
 
 float BULLET_SPEED = 800.0;
 float RELOAD_TIME = 0.2;
 float BACKGROUND_SPEED = 32.0;
+float MAX_HEALTH = 100.0;
+float BULLET_DAMAGE = 10.0;
+float CRASH_DAMAGE = 20.0;
 
-extern string PROJECT_DIRECTORY = "D:/Documents/Projects/Chap Shmup/";
-extern bool EXTERNAL_FILE_MODE = true;
+string PROJECT_DIRECTORY = "C:/Users/gruarm/Documents/Projects/ChapShmup/";
+bool EXTERNAL_FILE_MODE = true;
 
 string PLAYER_IMAGE = "img/rocket.png";
 string SPLASH_IMAGE = "img/menu.png";

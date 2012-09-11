@@ -38,6 +38,9 @@ extern bool INVERTED_Y_AXIS;
 extern float BULLET_SPEED;
 extern float RELOAD_TIME;
 extern float BACKGROUND_SPEED;
+extern float MAX_HEALTH;
+extern float BULLET_DAMAGE;
+extern float CRASH_DAMAGE;
 
 //File Loading Info
 extern string PROJECT_DIRECTORY;

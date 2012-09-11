@@ -8,6 +8,9 @@ Player::Player() {
 	screenConstrained = true;
 	bullets = NULL;
 	timeSinceShot = RELOAD_TIME;
+	maxHealth = MAX_HEALTH;
+	health = maxHealth;
+	bulletDamage = BULLET_DAMAGE;
 }
 
 
@@ -79,8 +82,6 @@ void Player::update(float secondsPassed) {
 
 	setAcceleration(xcomp, ycomp);
 
-	GameObject::update(secondsPassed);
-
 	//Next up, bullets!
 	timeSinceShot += secondsPassed;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)
@@ -93,4 +94,11 @@ void Player::update(float secondsPassed) {
 		bullets->push_back(b);
 		timeSinceShot = 0.0;
 	}
+
+	GameObject::update(secondsPassed);
+}
+
+void Player::damage(float hurt) {
+    if (hurt > 0)
+        health -= hurt;
 }
