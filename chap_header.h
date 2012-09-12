@@ -51,7 +51,7 @@ extern string PLAYER_IMAGE;
 extern string SPLASH_IMAGE;
 extern string BULLET_IMAGE;
 extern string ENEMY_IMAGE;
-extern string SIDEBAR_IMAGE;
+extern string SIDEBAR_IMAGE_L, SIDEBAR_IMAGE_R;
 extern string BACKGROUND_IMAGE;
 
 extern string PLAY_BUTTON_IMAGE;
@@ -62,7 +62,7 @@ extern string SETTINGS_BUTTON_IMAGE;
 extern sf::Texture PLAYER_TEXTURE;
 extern sf::Texture BULLET_TEXTURE;
 extern sf::Texture ENEMY_TEXTURE;
-extern sf::Texture SIDEBAR_TEXTURE;
+extern sf::Texture SIDEBAR_TEXTURE_L, SIDEBAR_TEXTURE_R;
 extern sf::Texture BACKGROUND_TEXTURE;
 
 extern sf::Texture PLAY_BUTTON_TEXTURE;

@@ -33,7 +33,8 @@ string PLAYER_IMAGE = "img/rocket.png";
 string SPLASH_IMAGE = "img/menu.png";
 string BULLET_IMAGE = "img/bullet.png";
 string ENEMY_IMAGE = "img/enemy.png";
-string SIDEBAR_IMAGE = "img/sidebar.png";
+string SIDEBAR_IMAGE_L = "img/sidebar_l.png";
+string SIDEBAR_IMAGE_R = "img/sidebar_r.png";
 string BACKGROUND_IMAGE = "img/game_bg.png";
 
 string PLAY_BUTTON_IMAGE = "img/buttons/play.png";
@@ -43,7 +44,7 @@ string SETTINGS_BUTTON_IMAGE = "img/buttons/settings.png";
 sf::Texture PLAYER_TEXTURE;
 sf::Texture BULLET_TEXTURE;
 sf::Texture ENEMY_TEXTURE;
-sf::Texture SIDEBAR_TEXTURE;
+sf::Texture SIDEBAR_TEXTURE_L, SIDEBAR_TEXTURE_R;
 sf::Texture BACKGROUND_TEXTURE;
 
 sf::Texture PLAY_BUTTON_TEXTURE;

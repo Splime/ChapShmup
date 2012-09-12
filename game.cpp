@@ -6,8 +6,8 @@ Game::Game(void) {
 	p.loadTexture(PLAYER_TEXTURE);
 	p.setPosition(400, 500);
 
-	sf::Sprite sidebar1(SIDEBAR_TEXTURE);
-	sf::Sprite sidebar2(SIDEBAR_TEXTURE);
+	sf::Sprite sidebar1(SIDEBAR_TEXTURE_L);
+	sf::Sprite sidebar2(SIDEBAR_TEXTURE_R);
 	sidebar2.setPosition(GAME_ZONE_X + GAME_ZONE_WIDTH, 0);
 	guiElements.push_back(sidebar1);
 	guiElements.push_back(sidebar2);
