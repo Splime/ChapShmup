@@ -13,7 +13,7 @@ int GAME_ZONE_HEIGHT = 720;
 
 string GAME_MODE = "Main Menu";
 
-float PLAYER_SPEED = 800.0;
+float PLAYER_SPEED = 400.0;
 float PLAYER_ACCEL = 2000.0;
 float PLAYER_DECEL = 2000.0;
 float MAX_SPEED = 1000000.0;

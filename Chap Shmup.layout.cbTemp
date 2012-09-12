@@ -2,10 +2,10 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="chap_globals.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="287" topLine="0" />
+		<Cursor position="610" topLine="6" />
 	</File>
 	<File name="chap_header.h" open="1" top="0" tabpos="3">
-		<Cursor position="1498" topLine="42" />
+		<Cursor position="882" topLine="18" />
 	</File>
 	<File name="enemy.cpp" open="1" top="0" tabpos="11">
 		<Cursor position="295" topLine="0" />
@@ -14,19 +14,19 @@
 		<Cursor position="226" topLine="0" />
 	</File>
 	<File name="game.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="212" topLine="0" />
+		<Cursor position="2847" topLine="94" />
 	</File>
 	<File name="game.h" open="1" top="0" tabpos="9">
 		<Cursor position="104" topLine="0" />
 	</File>
-	<File name="gameObject.cpp" open="1" top="1" tabpos="8">
+	<File name="gameObject.cpp" open="1" top="0" tabpos="8">
 		<Cursor position="165" topLine="0" />
 	</File>
 	<File name="gameObject.h" open="1" top="0" tabpos="6">
 		<Cursor position="651" topLine="1" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="3398" topLine="101" />
+	<File name="main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="1981" topLine="66" />
 	</File>
 	<File name="player.cpp" open="1" top="0" tabpos="7">
 		<Cursor position="264" topLine="39" />
