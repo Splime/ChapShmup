@@ -17,7 +17,11 @@ Game::Game(void) {
 	healthNumberDisplay = createText("00", 32, sf::Color::Green);
 	healthNumberDisplay.setPosition(8, healthDisplay.getPosition().y + healthDisplay.getGlobalBounds().height + 8);
 
+	sf::Text navigationLabel = createText("Elgoog Navigation", 18, sf::Color::Green);
+	navigationLabel.setPosition(1052, 8);
+
 	guiTexts.push_back(healthDisplay);
+	guiTexts.push_back(navigationLabel);
 	//guiTexts.push_back(healthNumberDisplay);
 
 	bg1.setTexture(BACKGROUND_TEXTURE);
