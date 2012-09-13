@@ -27,19 +27,21 @@ float MAX_HEALTH = 100.0;
 float BULLET_DAMAGE = 10.0;
 float CRASH_DAMAGE = 20.0;
 
-string PROJECT_DIRECTORY = "C:/Users/gruarm/Documents/Projects/ChapShmup/";
+//string PROJECT_DIRECTORY = "C:/Users/gruarm/Documents/Projects/ChapShmup/"; //Desktop
+string PROJECT_DIRECTORY = "D:/Documents/Projects/ChapShmup/"; //Laptop
 bool EXTERNAL_FILE_MODE = true;
 
 string PLAYER_IMAGE = "img/rocket.png";
 string SPLASH_IMAGE = "img/menu.png";
 string BULLET_IMAGE = "img/bullet.png";
+string ENEMY_BULLET_IMAGE = "img/enemy_bullet.png";
 string ENEMY_IMAGE = "img/enemy.png";
 string SIDEBAR_IMAGE_L = "img/sidebar_l.png";
 string SIDEBAR_IMAGE_R = "img/sidebar_r.png";
 string BACKGROUND_IMAGE = "img/game_bg.png";
 
 sf::Texture PLAYER_TEXTURE;
-sf::Texture BULLET_TEXTURE;
+sf::Texture BULLET_TEXTURE, ENEMY_BULLET_TEXTURE;
 sf::Texture ENEMY_TEXTURE;
 sf::Texture SIDEBAR_TEXTURE_L, SIDEBAR_TEXTURE_R;
 sf::Texture BACKGROUND_TEXTURE;

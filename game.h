@@ -28,6 +28,7 @@ public:
 private:
 	Player p;
 	list<GameObject> bullets;
+	list<GameObject> enemyBullets;
 	list<SpawnData> spawns;
 	list<Enemy> enemies;
 	list<sf::Sprite> guiElements;

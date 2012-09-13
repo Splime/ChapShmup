@@ -33,6 +33,7 @@ Game::~Game(void){
 
 void Game::start() {
     bullets.clear();
+    enemyBullets.clear();
     enemies.clear();
     spawns.clear();
     p.setPosition(400, 500);
@@ -102,14 +103,18 @@ void Game::update(float secondsPassed) {
 		for (GameObject& b : bullets) {
 			if (e.rectCollide(b)) {
 				b.kill();
-				//Do something with the enemy here
 				e.damage(p.getBulletDamage());
-				break;
 			}
 		}
 	}
 	//What about collisions with enemy bullets?
-
+    for (GameObject& b : enemyBullets)
+    {
+        if (b.rectCollide(p)) {
+            b.kill();
+            p.damage(BULLET_DAMAGE);
+        }
+    }
 	//Or enemies themselves crashing?
     for (Enemy& e : enemies) {
         if (e.rectCollide(p)) {
@@ -119,6 +124,11 @@ void Game::update(float secondsPassed) {
     }
 	//Sweep for out of bounds bullets
 	for (GameObject& b : bullets) {
+		if (b.getX() + b.getWidth() < -GAME_ZONE_PADDING || b.getX() > WINDOW_WIDTH + GAME_ZONE_PADDING
+			|| b.getY() + b.getHeight() < -GAME_ZONE_PADDING || b.getY() > WINDOW_HEIGHT + GAME_ZONE_PADDING)
+			b.kill();
+	}
+	for (GameObject& b : enemyBullets) {
 		if (b.getX() + b.getWidth() < -GAME_ZONE_PADDING || b.getX() > WINDOW_WIDTH + GAME_ZONE_PADDING
 			|| b.getY() + b.getHeight() < -GAME_ZONE_PADDING || b.getY() > WINDOW_HEIGHT + GAME_ZONE_PADDING)
 			b.kill();
@@ -142,7 +152,12 @@ void Game::update(float secondsPassed) {
         else
             itr++;
     }
-
+    for (list<GameObject>::iterator itr = enemyBullets.begin(); itr != enemyBullets.end(); ) {
+        if (itr->isDead())
+            itr = enemyBullets.erase(itr);
+        else
+            itr++;
+    }
 	//Update the player
 	p.update(secondsPassed);
 
