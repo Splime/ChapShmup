@@ -119,12 +119,16 @@ void Game::update(float secondsPassed) {
     }
 	//Sweep for out of bounds bullets
 	for (GameObject& b : bullets) {
-		if (b.getX() + b.getWidth() < 0 || b.getX() > WINDOW_WIDTH
-			|| b.getY() + b.getHeight() < 0 || b.getY() > WINDOW_HEIGHT)
+		if (b.getX() + b.getWidth() < -GAME_ZONE_PADDING || b.getX() > WINDOW_WIDTH + GAME_ZONE_PADDING
+			|| b.getY() + b.getHeight() < -GAME_ZONE_PADDING || b.getY() > WINDOW_HEIGHT + GAME_ZONE_PADDING)
 			b.kill();
 	}
 	//Sweep for out of bounds enemies
-
+    for (Enemy& e : enemies) {
+		if (e.getX() + e.getWidth() < -GAME_ZONE_PADDING || e.getX() > WINDOW_WIDTH + GAME_ZONE_PADDING
+			|| e.getY() + e.getHeight() < -GAME_ZONE_PADDING || e.getY() > WINDOW_HEIGHT + GAME_ZONE_PADDING)
+			e.kill();
+	}
 	//Garbage Collection!
     for(list<Enemy>::iterator eitr = enemies.begin(); eitr != enemies.end(); ) {
         if(eitr->isDead())

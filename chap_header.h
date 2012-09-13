@@ -24,7 +24,7 @@ extern sf::RenderWindow mainWindow;
 
 extern int WINDOW_WIDTH, WINDOW_HEIGHT;
 
-extern int GAME_ZONE_X, GAME_ZONE_Y, GAME_ZONE_WIDTH, GAME_ZONE_HEIGHT;
+extern int GAME_ZONE_X, GAME_ZONE_Y, GAME_ZONE_WIDTH, GAME_ZONE_HEIGHT, GAME_ZONE_PADDING;
 
 extern string GAME_MODE;
 
@@ -68,6 +68,10 @@ extern sf::Texture BACKGROUND_TEXTURE;
 extern sf::Texture PLAY_BUTTON_TEXTURE;
 extern sf::Texture QUIT_BUTTON_TEXTURE;
 extern sf::Texture SETTINGS_BUTTON_TEXTURE;
+
+//Font stuff
+extern string FONT_FILE_1;
+extern sf::Font FONT_1;
 
 //Level Data
 extern string TEST_LEVEL;

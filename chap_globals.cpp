@@ -10,6 +10,7 @@ int GAME_ZONE_X = 240;
 int GAME_ZONE_Y = 0;
 int GAME_ZONE_WIDTH = 800;
 int GAME_ZONE_HEIGHT = 720;
+int GAME_ZONE_PADDING = 240;
 
 string GAME_MODE = "Main Menu";
 
@@ -50,5 +51,8 @@ sf::Texture BACKGROUND_TEXTURE;
 sf::Texture PLAY_BUTTON_TEXTURE;
 sf::Texture QUIT_BUTTON_TEXTURE;
 sf::Texture SETTINGS_BUTTON_TEXTURE;
+
+string FONT_FILE_1 = "font/neuropolitical rg.otf";
+sf::Font FONT_1;
 
 string TEST_LEVEL = "data/test_lvl.txt";

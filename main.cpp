@@ -7,11 +7,15 @@
 #include "gameObject.h"
 
 void loadGlobalTextures();
+void loadGlobalFonts();
 bool clickWithin(sf::Sprite spr);
 
 int main() {
 	//Load up our textures
 	loadGlobalTextures();
+
+	//Load Our Font
+	loadGlobalFonts();
 
 	//Load up the Game
 	mainWindow.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), windowName);
@@ -21,7 +25,7 @@ int main() {
 	sf::Clock frameClock;
 	frameClock.restart();
 
-	//Menu Stuff - Temporary
+	//Menu Stuff - TODO, make separate class?
 	sf::Texture splashTex;
 	if (EXTERNAL_FILE_MODE)
 		splashTex.loadFromFile(PROJECT_DIRECTORY + SPLASH_IMAGE);
@@ -129,6 +133,16 @@ void loadGlobalTextures()
 		PLAY_BUTTON_TEXTURE.loadFromFile(PLAY_BUTTON_IMAGE);
 		SETTINGS_BUTTON_TEXTURE.loadFromFile(SETTINGS_BUTTON_IMAGE);
 		QUIT_BUTTON_TEXTURE.loadFromFile(QUIT_BUTTON_IMAGE);
+	}
+}
+
+void loadGlobalFonts() {
+    if (EXTERNAL_FILE_MODE)
+	{
+	    FONT_1.loadFromFile(PROJECT_DIRECTORY + FONT_FILE_1);
+	}
+	else{
+        FONT_1.loadFromFile(FONT_FILE_1);
 	}
 }
 
