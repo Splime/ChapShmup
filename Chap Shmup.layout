@@ -2,7 +2,7 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="chap_globals.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="1226" topLine="19" />
+		<Cursor position="1226" topLine="0" />
 	</File>
 	<File name="chap_header.h" open="1" top="0" tabpos="5">
 		<Cursor position="337" topLine="0" />
@@ -25,8 +25,8 @@
 	<File name="gameObject.h" open="1" top="0" tabpos="3">
 		<Cursor position="207" topLine="1" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="2119" topLine="49" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="5146" topLine="143" />
 	</File>
 	<File name="player.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="2246" topLine="80" />
@@ -34,10 +34,10 @@
 	<File name="player.h" open="0" top="0" tabpos="9">
 		<Cursor position="294" topLine="0" />
 	</File>
-	<File name="textButton.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="117" topLine="0" />
+	<File name="textButton.cpp" open="1" top="1" tabpos="7">
+		<Cursor position="841" topLine="13" />
 	</File>
 	<File name="textButton.h" open="1" top="0" tabpos="8">
-		<Cursor position="94" topLine="0" />
+		<Cursor position="424" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

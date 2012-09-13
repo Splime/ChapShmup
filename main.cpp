@@ -36,12 +36,15 @@ int main() {
 	sf::Sprite splashBox(splashTex);
 	//Play Button
     TextButton playButton("Play Game", 64, sf::Color::Green);
+    playButton.setSelectedColor(sf::Color::Red);
     playButton.text.setPosition(WINDOW_WIDTH/2 - playButton.text.getGlobalBounds().width/2, 260);
 	//Settings Button
 	TextButton settingsButton("Settings", 64, sf::Color::Green);
+	settingsButton.setSelectedColor(sf::Color::Red);
     settingsButton.text.setPosition(WINDOW_WIDTH/2 - settingsButton.text.getGlobalBounds().width/2, 360);
 	//Quit Button
 	TextButton quitButton("Quit Game", 64, sf::Color::Green);
+	quitButton.setSelectedColor(sf::Color::Red);
     quitButton.text.setPosition(WINDOW_WIDTH/2 - quitButton.text.getGlobalBounds().width/2, 460);
 	//Logo
 	sf::Text logo("Chap Shmup");
@@ -160,12 +163,12 @@ bool mouseWithin(sf::Sprite spr) {
 	int x = sf::Mouse::getPosition(mainWindow).x;
 	int y = sf::Mouse::getPosition(mainWindow).y;
 	return x > spr.getPosition().x && x < spr.getPosition().x + spr.getGlobalBounds().width
-		&& x > spr.getPosition().y && y < spr.getPosition().y + spr.getGlobalBounds().height;
+		&& y > spr.getPosition().y && y < spr.getPosition().y + spr.getGlobalBounds().height;
 }
 
 bool mouseWithin(sf::Text tex) {
 	int x = sf::Mouse::getPosition(mainWindow).x;
 	int y = sf::Mouse::getPosition(mainWindow).y;
 	return x > tex.getPosition().x && x < tex.getPosition().x + tex.getGlobalBounds().width
-		&& x > tex.getPosition().y && y < tex.getPosition().y + tex.getGlobalBounds().height;
+		&& y > tex.getPosition().y && y < tex.getPosition().y + tex.getGlobalBounds().height;
 }
