@@ -12,10 +12,10 @@ Game::Game(void) {
 	guiElements.push_back(sidebar1);
 	guiElements.push_back(sidebar2);
 
-	sf::Text healthDisplay = createText("Health: ", 32, sf::Color::Green);
+	sf::Text healthDisplay = createText("Hull Strength: ", 24, sf::Color::Green);
 	healthDisplay.setPosition(8, 500);
 	healthNumberDisplay = createText("00", 32, sf::Color::Green);
-	healthNumberDisplay.setPosition(healthDisplay.getGlobalBounds().width + healthDisplay.getPosition().x + 16, healthDisplay.getPosition().y);
+	healthNumberDisplay.setPosition(8, healthDisplay.getPosition().y + healthDisplay.getGlobalBounds().height + 8);
 
 	guiTexts.push_back(healthDisplay);
 	//guiTexts.push_back(healthNumberDisplay);
@@ -45,7 +45,7 @@ void Game::start() {
     enemies.clear();
     spawns.clear();
     p.setPosition(400, 500);
-    p.heal(p.getMaxHealth());
+    p.heal(-1);
 
 	loadLevel(TEST_LEVEL);
 
