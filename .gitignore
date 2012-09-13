@@ -163,6 +163,6 @@ pip-log.txt
 .DS_Store
 
 ####### Code::Blocks
-.cbp
-.depend
-.layout
+*.cbp
+*.depend
+*.layout
