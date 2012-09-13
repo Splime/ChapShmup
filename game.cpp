@@ -53,6 +53,8 @@ void Game::draw(sf::RenderWindow& window) {
 	//Draw the bullets
 	for (GameObject& b : bullets)
 		b.draw(window);
+    for (GameObject& b : enemyBullets)
+		b.draw(window);
 	//Draw enemies
 	for (Enemy& e : enemies)
 		e.draw(window);
@@ -85,6 +87,7 @@ void Game::update(float secondsPassed) {
 			e.loadTexture(ENEMY_TEXTURE);
 			e.setPosition(itr->x + GAME_ZONE_X, itr->y);
 			e.setVelocity(itr->vx, itr->vy);
+			e.linkBullets(&enemyBullets);
 			enemies.push_back(e);
 			itr = spawns.erase(itr);
 		}
@@ -94,6 +97,8 @@ void Game::update(float secondsPassed) {
 	}
 	//Update the bullets
 	for (GameObject& b : bullets)
+		b.update(secondsPassed);
+    for (GameObject& b : enemyBullets)
 		b.update(secondsPassed);
 	//Update enemies
 	for (Enemy& e : enemies)
