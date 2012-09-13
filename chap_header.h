@@ -54,20 +54,12 @@ extern string ENEMY_IMAGE;
 extern string SIDEBAR_IMAGE_L, SIDEBAR_IMAGE_R;
 extern string BACKGROUND_IMAGE;
 
-extern string PLAY_BUTTON_IMAGE;
-extern string QUIT_BUTTON_IMAGE;
-extern string SETTINGS_BUTTON_IMAGE;
-
 //Textures that get reused a lot:
 extern sf::Texture PLAYER_TEXTURE;
 extern sf::Texture BULLET_TEXTURE;
 extern sf::Texture ENEMY_TEXTURE;
 extern sf::Texture SIDEBAR_TEXTURE_L, SIDEBAR_TEXTURE_R;
 extern sf::Texture BACKGROUND_TEXTURE;
-
-extern sf::Texture PLAY_BUTTON_TEXTURE;
-extern sf::Texture QUIT_BUTTON_TEXTURE;
-extern sf::Texture SETTINGS_BUTTON_TEXTURE;
 
 //Font stuff
 extern string FONT_FILE_1;
