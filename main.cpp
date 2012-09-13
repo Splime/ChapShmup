@@ -1,6 +1,5 @@
 /**
- * Chap Shmup v0.1
- * 07/10/2012
+ * Chap Shmup v0.1.5
  */
 
 #include "chap_header.h"
@@ -53,6 +52,7 @@ int main() {
 					//Buttons!
 					if (clickWithin(playButton)) {
 						GAME_MODE = "Play Game";
+						theGame.start();
 					}
 					else if (clickWithin(settingsButton)) {
 						GAME_MODE = "Settings";
@@ -72,7 +72,7 @@ int main() {
 			mainWindow.display();
 		}
 		//GAME_MODE: Play Game
-		if (GAME_MODE == "Play Game") {
+		else if (GAME_MODE == "Play Game") {
 			//Updating
 			theGame.update(elapsedTime.asSeconds());
 
@@ -80,9 +80,13 @@ int main() {
 			mainWindow.clear();
 			theGame.draw(mainWindow);
 			mainWindow.display();
+
+			//Game ended?
+			if (theGame.isLevelOver())
+                GAME_MODE = "Main Menu";
 		}
 		//GAME_MODE: Settings
-		if (GAME_MODE == "Settings") {
+		else if (GAME_MODE == "Settings") {
 			mainWindow.clear();
 			mainWindow.draw(splashBox);
 			mainWindow.display();

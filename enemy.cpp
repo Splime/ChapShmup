@@ -6,7 +6,7 @@ Enemy::Enemy() {
 	ax = ay = 0;
 	max_vx = max_vy = MAX_SPEED;
 	screenConstrained = false;
-	maxHealth = health = 20; //TEMPORARY!
+	maxHealth = health = 10; //TEMPORARY!
 
 }
 

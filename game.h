@@ -1,3 +1,8 @@
+/**
+ * Game: Represents a single level
+ * (A bit of a misleading name, due to changing scope of the game)
+ */
+
 #pragma once
 #include "chap_header.h"
 #include "gameObject.h"
@@ -12,9 +17,12 @@ public:
 	Game(void);
 	~Game(void);
 
+    void start();
 	void draw(sf::RenderWindow& window);
 	void update(float secondsPassed);
 	void loadLevel(string filename);
+
+	bool isLevelOver() { return gameOver; }
 
 
 private:
@@ -26,6 +34,8 @@ private:
 	sf::Sprite bg1, bg2, bg3; //Background images
 
 	double gameTime;
+	double levelLength;
+	bool gameOver;
 };
 
 struct SpawnData {

@@ -12,6 +12,7 @@ public:
 	void linkBullets(list<GameObject>* bulls); //Gives the player access to the list of bullets
 	virtual void update(float secondsPassed);
 	void damage(float hurt);
+	void heal(float healer);
 
 	float getHealth() { return health; }
 	float getMaxHealth() { return maxHealth; }

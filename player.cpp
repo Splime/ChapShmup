@@ -102,3 +102,10 @@ void Player::damage(float hurt) {
     if (hurt > 0)
         health -= hurt;
 }
+
+void Player::heal(float healer) {
+    if (health + healer < maxHealth)
+        health += healer;
+    else
+        health = maxHealth;
+}

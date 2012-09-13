@@ -19,9 +19,10 @@ Game::Game(void) {
 	bg2.move(GAME_ZONE_X, -GAME_ZONE_HEIGHT);
 	bg3.move(GAME_ZONE_X, -GAME_ZONE_HEIGHT*2);
 
-	loadLevel(TEST_LEVEL);
+	//loadLevel(TEST_LEVEL); //Removed, start always gets called and start calls this
 
 	gameTime = 0.0;
+	gameOver = false;
 }
 
 
@@ -29,6 +30,19 @@ Game::~Game(void){
 
 }
 
+
+void Game::start() {
+    bullets.clear();
+    enemies.clear();
+    spawns.clear();
+    p.setPosition(400, 500);
+    p.heal(p.getMaxHealth());
+
+	loadLevel(TEST_LEVEL);
+
+	gameTime = 0.0;
+	gameOver = false;
+}
 
 void Game::draw(sf::RenderWindow& window) {
 	//Draw the background
@@ -127,6 +141,10 @@ void Game::update(float secondsPassed) {
 
 	//Update the player
 	p.update(secondsPassed);
+
+	//End of level?
+	if (gameTime > levelLength)
+        gameOver = true;
 }
 
 void Game::loadLevel(string filename) {
@@ -137,6 +155,7 @@ void Game::loadLevel(string filename) {
 		level.open(filename.c_str());
 	if (!level.is_open())
 		return;
+    level >> levelLength;
 	while (!level.eof()) {
 		SpawnData entry;
 		level >> entry.spawnTime;
