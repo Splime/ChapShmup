@@ -3,8 +3,10 @@
 #include <string>
 #include <cstdlib>
 #include <list>
+#include <vector>
 #include <cmath>
 #include <fstream>
+#include <sstream>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -18,6 +20,8 @@ using std::string;
 using std::endl;
 using std::list;
 using std::ifstream;
+using std::vector;
+using std::stringstream;
 
 extern string windowName;
 extern sf::RenderWindow mainWindow;
@@ -69,3 +73,10 @@ extern sf::Font FONT_1;
 
 //Level Data
 extern string TEST_LEVEL;
+
+//Functions
+void loadGlobalTextures();
+void loadGlobalFonts();
+bool mouseWithin(sf::Sprite spr);
+bool mouseWithin(sf::Text tex);
+sf::Text createText(string txt, int charSize, sf::Color color);

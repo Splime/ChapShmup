@@ -12,6 +12,14 @@ Game::Game(void) {
 	guiElements.push_back(sidebar1);
 	guiElements.push_back(sidebar2);
 
+	sf::Text healthDisplay = createText("Health: ", 32, sf::Color::Green);
+	healthDisplay.setPosition(8, 500);
+	healthNumberDisplay = createText("00", 32, sf::Color::Green);
+	healthNumberDisplay.setPosition(healthDisplay.getGlobalBounds().width + healthDisplay.getPosition().x + 16, healthDisplay.getPosition().y);
+
+	guiTexts.push_back(healthDisplay);
+	//guiTexts.push_back(healthNumberDisplay);
+
 	bg1.setTexture(BACKGROUND_TEXTURE);
 	bg2.setTexture(BACKGROUND_TEXTURE);
 	bg3.setTexture(BACKGROUND_TEXTURE);
@@ -64,6 +72,9 @@ void Game::draw(sf::RenderWindow& window) {
 	//Draw GUI Elements
 	for (sf::Sprite& spr : guiElements)
 		window.draw(spr);
+    for (sf::Text& txt : guiTexts)
+		window.draw(txt);
+    window.draw(healthNumberDisplay);
 }
 
 
@@ -103,6 +114,12 @@ void Game::update(float secondsPassed) {
 	//Update enemies
 	for (Enemy& e : enemies)
 		e.update(secondsPassed);
+    //Update the healthNumberDisplay
+    stringstream ss;
+    ss << p.getHealth();
+    string healthNum;
+    ss >> healthNum;
+    healthNumberDisplay.setString(healthNum);
 	//Check for bullet collisions
 	for(Enemy& e : enemies) {
 		for (GameObject& b : bullets) {
