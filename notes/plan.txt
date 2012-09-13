@@ -13,3 +13,6 @@ TODO Soon:
 - Sounds: Shitty laser sounds
 - GUI: Show shit about our health
 - Collision boxes: tweak the enemies/game objects so that their collision area can be a bit smaller than their image rect, or allow multiple rects?
+
+=== Sept 13, 2012 ===
+TODO Immediately: Get buttons to highlight when selected, put text in game gui

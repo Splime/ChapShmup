@@ -8,7 +8,7 @@
 	"player.h"
 	"enemy.h"
 
-1347520011 c:\users\gruarm\documents\projects\chapshmup\chap_header.h
+1347520914 c:\users\gruarm\documents\projects\chapshmup\chap_header.h
 	<iostream>
 	<string>
 	<cstdlib>
@@ -362,10 +362,11 @@
 1347332933 source:c:\users\gruarm\documents\projects\chapshmup\gameobject.cpp
 	"gameObject.h"
 
-1347520329 source:c:\users\gruarm\documents\projects\chapshmup\main.cpp
+1347522617 source:c:\users\gruarm\documents\projects\chapshmup\main.cpp
 	"chap_header.h"
 	"game.h"
 	"gameObject.h"
+	"textButton.h"
 
 1347517186 source:c:\users\gruarm\documents\projects\chapshmup\player.cpp
 	"player.h"
@@ -379,4 +380,10 @@
 1347332969 c:\users\gruarm\documents\projects\chapshmup\enemy.h
 	"chap_header.h"
 	"gameObject.h"
+
+1347522394 c:\users\gruarm\documents\projects\chapshmup\textbutton.h
+	"chap_header.h"
+
+1347522407 source:c:\users\gruarm\documents\projects\chapshmup\textbutton.cpp
+	"textButton.h"
 

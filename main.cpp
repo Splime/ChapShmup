@@ -5,6 +5,7 @@
 #include "chap_header.h"
 #include "game.h"
 #include "gameObject.h"
+#include "textButton.h"
 
 void loadGlobalTextures();
 void loadGlobalFonts();
@@ -34,23 +35,14 @@ int main() {
 		splashTex.loadFromFile(SPLASH_IMAGE);
 	sf::Sprite splashBox(splashTex);
 	//Play Button
-	sf::Text playButton("Play Game");
-	playButton.setFont(FONT_1);
-	playButton.setCharacterSize(64);
-	playButton.setColor(sf::Color::Green);
-	playButton.setPosition(WINDOW_WIDTH/2 - playButton.getGlobalBounds().width/2, 260);
+    TextButton playButton("Play Game", 64, sf::Color::Green);
+    playButton.text.setPosition(WINDOW_WIDTH/2 - playButton.text.getGlobalBounds().width/2, 260);
 	//Settings Button
-	sf::Text settingsButton("Settings");
-	settingsButton.setFont(FONT_1);
-	settingsButton.setCharacterSize(64);
-	settingsButton.setColor(sf::Color::Green);
-	settingsButton.setPosition(WINDOW_WIDTH/2 - settingsButton.getGlobalBounds().width/2, 360);
+	TextButton settingsButton("Settings", 64, sf::Color::Green);
+    settingsButton.text.setPosition(WINDOW_WIDTH/2 - settingsButton.text.getGlobalBounds().width/2, 360);
 	//Quit Button
-	sf::Text quitButton("Quit Game");
-	quitButton.setFont(FONT_1);
-	quitButton.setCharacterSize(64);
-	quitButton.setColor(sf::Color::Green);
-	quitButton.setPosition(WINDOW_WIDTH/2 - quitButton.getGlobalBounds().width/2, 460);
+	TextButton quitButton("Quit Game", 64, sf::Color::Green);
+    quitButton.text.setPosition(WINDOW_WIDTH/2 - quitButton.text.getGlobalBounds().width/2, 460);
 	//Logo
 	sf::Text logo("Chap Shmup");
 	logo.setFont(FONT_1);
@@ -73,14 +65,14 @@ int main() {
 			if (e.type == sf::Event::MouseButtonPressed) {
 				if (GAME_MODE == "Main Menu") {
 					//Buttons!
-					if (mouseWithin(playButton)) {
+					if (mouseWithin(playButton.text)) {
 						GAME_MODE = "Play Game";
 						theGame.start();
 					}
-					else if (mouseWithin(settingsButton)) {
+					else if (mouseWithin(settingsButton.text)) {
 						GAME_MODE = "Settings";
 					}
-					else if (mouseWithin(quitButton)) {
+					else if (mouseWithin(quitButton.text)) {
 						mainWindow.close();
 					}
 				}
@@ -88,10 +80,16 @@ int main() {
 		}
 		//GAME_MODE: Main Menu
 		if (GAME_MODE == "Main Menu") {
+		    //Updating
+		    playButton.update(elapsedTime.asSeconds());
+		    settingsButton.update(elapsedTime.asSeconds());
+		    quitButton.update(elapsedTime.asSeconds());
+
+		    //Drawing
 			mainWindow.clear();
-			mainWindow.draw(playButton);
-			mainWindow.draw(settingsButton);
-			mainWindow.draw(quitButton);
+			playButton.draw(mainWindow);
+			settingsButton.draw(mainWindow);
+			quitButton.draw(mainWindow);
 			mainWindow.draw(logo);
 			mainWindow.display();
 		}
