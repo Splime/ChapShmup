@@ -1,5 +1,5 @@
 /**
- * Chap Shmup v0.1.5
+ * Chap Shmup v0.1.5a
  */
 
 #include "chap_header.h"
@@ -42,7 +42,8 @@ int main() {
 	quitButton.setSelectedColor(sf::Color::Red);
     quitButton.text.setPosition(WINDOW_WIDTH/2 - quitButton.text.getGlobalBounds().width/2, 460);
 	//Logo
-	sf::Text logo("Chap Shmup");
+	sf::Text logo;
+	logo.setString("Chap Shmup");
 	logo.setFont(FONT_1);
 	logo.setCharacterSize(96);
 	logo.setColor(sf::Color::Green);

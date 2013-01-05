@@ -27,8 +27,8 @@ float MAX_HEALTH = 100.0;
 float BULLET_DAMAGE = 10.0;
 float CRASH_DAMAGE = 20.0;
 
-//string PROJECT_DIRECTORY = "C:/Users/gruarm/Documents/Projects/ChapShmup/"; //Desktop
-string PROJECT_DIRECTORY = "D:/Documents/Projects/ChapShmup/"; //Laptop
+string PROJECT_DIRECTORY = "C:/Users/gruarm/GitHub/ChapShmup/"; //Desktop
+//string PROJECT_DIRECTORY = "D:/Documents/Projects/ChapShmup/"; //Laptop
 bool EXTERNAL_FILE_MODE = true;
 
 string PLAYER_IMAGE = "img/rocket.png";
