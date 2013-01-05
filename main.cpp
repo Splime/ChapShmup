@@ -30,7 +30,7 @@ int main() {
 		splashTex.loadFromFile(SPLASH_IMAGE);
 	sf::Sprite splashBox(splashTex);
 	//Play Button
-    TextButton playButton("Play Game", 64, sf::Color::Green);
+    TextButton playButton("Play Level", 64, sf::Color::Green);
     playButton.setSelectedColor(sf::Color::Red);
     playButton.text.setPosition(WINDOW_WIDTH/2 - playButton.text.getGlobalBounds().width/2, 260);
 	//Settings Button
@@ -54,31 +54,50 @@ int main() {
 		//Get elapsed time
 		sf::Time elapsedTime = frameClock.restart();
 		sf::Event e;
-		while(mainWindow.pollEvent(e)) {
-			if (e.type == sf::Event::Closed) {
+		while(mainWindow.pollEvent(e))
+		{
+			if (e.type == sf::Event::Closed)
+            {
 				mainWindow.close();
 			}
 			if (e.type == sf::Event::KeyPressed && e.key.code == sf::Keyboard::Escape) {
-				mainWindow.close();
+                if (GAME_MODE == "Main Menu")
+                {
+                    mainWindow.close();
+                }
+                else
+                {
+                    GAME_MODE = "Main Menu";
+                }
 			}
-			if (e.type == sf::Event::MouseButtonPressed) {
-				if (GAME_MODE == "Main Menu") {
+			if (e.type == sf::Event::MouseButtonPressed)
+			{
+				if (GAME_MODE == "Main Menu")
+				{
 					//Buttons!
-					if (mouseWithin(playButton.text)) {
-						GAME_MODE = "Play Game";
+					if (mouseWithin(playButton.text))
+					{
+						GAME_MODE = "Play Level";
 						theGame.start();
 					}
-					else if (mouseWithin(settingsButton.text)) {
+					else if (mouseWithin(settingsButton.text))
+					{
 						GAME_MODE = "Settings";
 					}
-					else if (mouseWithin(quitButton.text)) {
+					else if (mouseWithin(quitButton.text))
+					{
 						mainWindow.close();
 					}
 				}
+				else if (GAME_MODE == "Settings")
+                {
+                    GAME_MODE = "Main Menu";
+                }
 			}
 		}
 		//GAME_MODE: Main Menu
-		if (GAME_MODE == "Main Menu") {
+		if (GAME_MODE == "Main Menu")
+        {
 		    //Updating
 		    playButton.update(elapsedTime.asSeconds());
 		    settingsButton.update(elapsedTime.asSeconds());
@@ -93,7 +112,8 @@ int main() {
 			mainWindow.display();
 		}
 		//GAME_MODE: Play Game
-		else if (GAME_MODE == "Play Game") {
+		else if (GAME_MODE == "Play Level")
+        {
 			//Updating
 			theGame.update(elapsedTime.asSeconds());
 
@@ -107,7 +127,8 @@ int main() {
                 GAME_MODE = "Main Menu";
 		}
 		//GAME_MODE: Settings
-		else if (GAME_MODE == "Settings") {
+		else if (GAME_MODE == "Settings")
+        {
 			mainWindow.clear();
 			mainWindow.draw(splashBox);
 			mainWindow.display();
