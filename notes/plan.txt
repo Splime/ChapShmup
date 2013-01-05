@@ -16,3 +16,27 @@ TODO Soon:
 
 === Sept 13, 2012 ===
 TODO Immediately: put text in game gui
+
+=== Jan 05, 2013 ===
+Back from hiatus (actually came back yesterday)!
+
+The plan has changed slightly, this isn't going to have super-amounts of freedom. Think of it more as Space Oregon Trail with some extra perks.
+
+Done pre-hiatus but post-Sept 10th:
+- Text Display of Health
+- Level Timer
+- Enemies Fire "Bullets"
+
+New Features:
+- Distance Meter
+- Settings Page is less shit
+
+Still TODO:
+- Enemy presets: given a certain label, create a type of enemy (i.e. moving, shooting, bigger, etc.)
+- Level improvements: Make the first level (Earth -> TitanMart -> Pluto) more interesting
+- Level graphics: planets in the background at certain times
+- Better graphics: redo the player ship (i.e. not a red rocket), and add some SFX like shitty explosions
+- Sounds: Shitty laser sounds
+- GUI: Add a bit more, maybe date/time?
+- Collision boxes: tweak the enemies/game objects so that their collision area can be a bit smaller than their image rect, or allow multiple rects?
+- Metagame: Story, Upgrades, Inventory, Load/Save
