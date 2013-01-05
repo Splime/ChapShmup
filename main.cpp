@@ -42,12 +42,19 @@ int main() {
 	quitButton.setSelectedColor(sf::Color::Red);
     quitButton.text.setPosition(WINDOW_WIDTH/2 - quitButton.text.getGlobalBounds().width/2, 460);
 	//Logo
-	sf::Text logo;
-	logo.setString("Chap Shmup");
-	logo.setFont(FONT_1);
-	logo.setCharacterSize(96);
-	logo.setColor(sf::Color::Green);
+	sf::Text logo = createText("Chap Shmup", 96, sf::Color::Green);
 	logo.setPosition(WINDOW_WIDTH/2 - logo.getGlobalBounds().width/2, 16);
+
+	//Settings Screen
+	//Title
+	sf::Text settingsTitle = createText("Settings", 96, sf::Color::Green);
+	settingsTitle.setPosition(WINDOW_WIDTH/2 - settingsTitle.getGlobalBounds().width/2, 16);
+	//TODO
+	//Actual Settings
+	//Back
+	TextButton backButton("Back", 64, sf::Color::Green);
+	backButton.setSelectedColor(sf::Color::Red);
+    backButton.text.setPosition(WINDOW_WIDTH/2 - backButton.text.getGlobalBounds().width/2, 460);
 
 	//Run the window
 	while (mainWindow.isOpen()) {
@@ -91,7 +98,10 @@ int main() {
 				}
 				else if (GAME_MODE == "Settings")
                 {
-                    GAME_MODE = "Main Menu";
+                    if (mouseWithin(backButton.text))
+					{
+						GAME_MODE = "Main Menu";
+					}
                 }
 			}
 		}
@@ -129,8 +139,13 @@ int main() {
 		//GAME_MODE: Settings
 		else if (GAME_MODE == "Settings")
         {
+            //Updating
+            backButton.update(elapsedTime.asSeconds());
+
+            //Drawing
 			mainWindow.clear();
-			mainWindow.draw(splashBox);
+			mainWindow.draw(settingsTitle);
+			backButton.draw(mainWindow);
 			mainWindow.display();
 		}
 

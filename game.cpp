@@ -6,28 +6,43 @@ Game::Game(void) {
 	p.loadTexture(PLAYER_TEXTURE);
 	p.setPosition(400, 500);
 
+    //HUD Base
 	sf::Sprite sidebar1(SIDEBAR_TEXTURE_L);
 	sf::Sprite sidebar2(SIDEBAR_TEXTURE_R);
 	sidebar2.setPosition(GAME_ZONE_X + GAME_ZONE_WIDTH, 0);
 	guiElements.push_back(sidebar1);
 	guiElements.push_back(sidebar2);
 
+    //Health Display
 	sf::Text healthDisplay = createText("Hull Strength: ", 24, sf::Color::Green);
 	healthDisplay.setPosition(8, 500);
 	healthNumberDisplay = createText("00", 32, sf::Color::Green);
 	healthNumberDisplay.setPosition(8, healthDisplay.getPosition().y + healthDisplay.getGlobalBounds().height + 8);
-
 	guiTexts.push_back(healthDisplay);
-	//guiTexts.push_back(healthNumberDisplay);
 
+	//GPS Stuff - CURRENTLY HARDCODED
+	sf::Text destinationText = createText("Pluto", 18, sf::Color::Green);
+	sf::Text midPointText = createText("TitanMart", 18, sf::Color::Green);
+	sf::Text originText = createText("Earth", 18, sf::Color::Green);
+	destinationText.setPosition(GAME_ZONE_X + GAME_ZONE_WIDTH + 10, 64);
+	midPointText.setPosition(GAME_ZONE_X + GAME_ZONE_WIDTH + 10, 260);
+	originText.setPosition(GAME_ZONE_X + GAME_ZONE_WIDTH + 10, 456);
+	guiTexts.push_back(destinationText);
+	guiTexts.push_back(midPointText);
+	guiTexts.push_back(originText);
+	distBarStart = sf::Vector2f(GAME_ZONE_X + GAME_ZONE_WIDTH + 174, 61 + 416);
+	distBarMaxSize = sf::Vector2f(60, 416);
+	distanceBar.setPosition(distBarStart.x, distBarStart.y - distBarMaxSize.y);
+	distanceBar.setSize(distBarMaxSize);
+	distanceBar.setFillColor(sf::Color::Green);
+
+    //Background Texture (i.e. Stars)
 	bg1.setTexture(BACKGROUND_TEXTURE);
 	bg2.setTexture(BACKGROUND_TEXTURE);
 	bg3.setTexture(BACKGROUND_TEXTURE);
 	bg1.move(GAME_ZONE_X, 0);
 	bg2.move(GAME_ZONE_X, -GAME_ZONE_HEIGHT);
 	bg3.move(GAME_ZONE_X, -GAME_ZONE_HEIGHT*2);
-
-	//loadLevel(TEST_LEVEL); //Removed, start always gets called and start calls this
 
 	gameTime = 0.0;
 	gameOver = false;
@@ -75,6 +90,7 @@ void Game::draw(sf::RenderWindow& window) {
     for (sf::Text& txt : guiTexts)
 		window.draw(txt);
     window.draw(healthNumberDisplay);
+    window.draw(distanceBar);
 }
 
 
@@ -120,6 +136,10 @@ void Game::update(float secondsPassed) {
     string healthNum;
     ss >> healthNum;
     healthNumberDisplay.setString(healthNum);
+    //Update the Distance Bar
+    double timeRatio = gameTime / levelLength;
+    distanceBar.setPosition(distBarStart.x, distBarStart.y - timeRatio*distBarMaxSize.y);
+	distanceBar.setSize(sf::Vector2f(distBarMaxSize.x, timeRatio*distBarMaxSize.y));
 	//Check for bullet collisions
 	for(Enemy& e : enemies) {
 		for (GameObject& b : bullets) {

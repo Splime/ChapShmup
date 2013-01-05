@@ -35,6 +35,9 @@ private:
 	vector<sf::Text> guiTexts;
 	sf::Text healthNumberDisplay;
 	sf::Sprite bg1, bg2, bg3; //Background images
+	sf::RectangleShape distanceBar;
+	sf::Vector2f distBarStart;
+	sf::Vector2f distBarMaxSize;
 
 	double gameTime;
 	double levelLength;

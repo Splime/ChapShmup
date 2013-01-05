@@ -6,11 +6,11 @@ Enemy::Enemy() {
 	ax = ay = 0;
 	max_vx = max_vy = MAX_SPEED;
 	screenConstrained = false;
-	maxHealth = health = 10; //TEMPORARY!
-	timeSinceShot = RELOAD_TIME; //TEMP
+	maxHealth = health = ENEMY_MAX_HEALTH;
+	timeSinceShot = ENEMY_RELOAD_TIME;
     bullets = NULL;
     shootsBullets = true;
-    reloadTime = RELOAD_TIME;
+    reloadTime = ENEMY_RELOAD_TIME;
 }
 
 

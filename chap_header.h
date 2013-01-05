@@ -45,6 +45,8 @@ extern float BACKGROUND_SPEED;
 extern float MAX_HEALTH;
 extern float BULLET_DAMAGE;
 extern float CRASH_DAMAGE;
+extern float ENEMY_MAX_HEALTH;
+extern float ENEMY_RELOAD_TIME;
 
 //File Loading Info
 extern string PROJECT_DIRECTORY;
