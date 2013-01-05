@@ -1,11 +1,12 @@
 #include "textButton.h"
 
 TextButton::TextButton(string txt, int charSize, sf::Color color) {
-    text.setString(txt);
+    /*text.setString(txt);
     text.setCharacterSize(charSize);
     text.setColor(color);
+    text.setFont(FONT_1);*/
+    text = createText(txt, charSize, color);
     baseColor = selectedColor = color;
-    text.setFont(FONT_1);
     selected = false;
 }
 
