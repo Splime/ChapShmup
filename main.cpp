@@ -8,6 +8,9 @@
 #include "textButton.h"
 
 int main() {
+    //RNG
+    srand((unsigned int)time(NULL));
+
 	//Load up our textures
 	loadGlobalTextures();
 

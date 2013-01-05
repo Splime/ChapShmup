@@ -28,6 +28,7 @@ float BULLET_DAMAGE = 10.0;
 float CRASH_DAMAGE = 20.0;
 float ENEMY_MAX_HEALTH = 10.0;
 float ENEMY_RELOAD_TIME = 1.0;
+float ENEMY_BULLET_SPEED = 400.0;
 
 string PROJECT_DIRECTORY = "C:/Users/gruarm/GitHub/ChapShmup/"; //Desktop
 //string PROJECT_DIRECTORY = "D:/Documents/Projects/ChapShmup/"; //Laptop

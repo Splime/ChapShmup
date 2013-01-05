@@ -219,6 +219,8 @@ void Game::loadLevel(string filename) {
     level >> levelLength;
 	while (!level.eof()) {
 		SpawnData entry;
+		level >> entry.spawnType;
+		//For more complicated stuff, this is where we need some if statements!
 		level >> entry.spawnTime;
 		level >> entry.x;
 		level >> entry.y;

@@ -40,3 +40,4 @@ Still TODO:
 - GUI: Add a bit more, maybe date/time?
 - Collision boxes: tweak the enemies/game objects so that their collision area can be a bit smaller than their image rect, or allow multiple rects?
 - Metagame: Story, Upgrades, Inventory, Load/Save
+- External Filemode: Fix this monstrosity

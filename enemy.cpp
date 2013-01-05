@@ -7,7 +7,7 @@ Enemy::Enemy() {
 	max_vx = max_vy = MAX_SPEED;
 	screenConstrained = false;
 	maxHealth = health = ENEMY_MAX_HEALTH;
-	timeSinceShot = ENEMY_RELOAD_TIME;
+	timeSinceShot = ((rand()%100)*ENEMY_RELOAD_TIME)/100.0;
     bullets = NULL;
     shootsBullets = true;
     reloadTime = ENEMY_RELOAD_TIME;
@@ -27,14 +27,14 @@ void Enemy::update(float secondsPassed) {
     if (shootsBullets)
     {
         timeSinceShot += secondsPassed;
-        if ( timeSinceShot > reloadTime) {
+        if ( timeSinceShot > reloadTime && py > 0) {
             //Spawn a bullet!
             GameObject b;
             b.loadTexture(ENEMY_BULLET_TEXTURE);
             b.setPosition(px + getWidth()/2 - b.getWidth()/2, py + getHeight());
-            b.setVelocity(0, BULLET_SPEED);
+            b.setVelocity(0, ENEMY_BULLET_SPEED);
             bullets->push_back(b);
-            timeSinceShot = 0.0;
+            timeSinceShot = 0.0 + (rand()%10)/100.0;
         }
     }
 

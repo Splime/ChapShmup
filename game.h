@@ -45,6 +45,7 @@ private:
 };
 
 struct SpawnData {
+    string spawnType;
 	float spawnTime;
 	int x;
 	int y;
