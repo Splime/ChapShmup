@@ -12,18 +12,6 @@ Game::Game(void) {
 	guiElements.push_back(sidebar1);
 	guiElements.push_back(sidebar2);
 
-	sf::Text healthDisplay = createText("Hull Strength: ", 24, sf::Color::Green);
-	healthDisplay.setPosition(8, 500);
-	healthNumberDisplay = createText("00", 32, sf::Color::Green);
-	healthNumberDisplay.setPosition(8, healthDisplay.getPosition().y + healthDisplay.getGlobalBounds().height + 8);
-
-	sf::Text navigationLabel = createText("Elgoog Navigation", 18, sf::Color::Green);
-	navigationLabel.setPosition(1052, 8);
-
-	guiTexts.push_back(healthDisplay);
-	guiTexts.push_back(navigationLabel);
-	//guiTexts.push_back(healthNumberDisplay);
-
 	bg1.setTexture(BACKGROUND_TEXTURE);
 	bg2.setTexture(BACKGROUND_TEXTURE);
 	bg3.setTexture(BACKGROUND_TEXTURE);
@@ -45,11 +33,10 @@ Game::~Game(void){
 
 void Game::start() {
     bullets.clear();
-    enemyBullets.clear();
     enemies.clear();
     spawns.clear();
     p.setPosition(400, 500);
-    p.heal(-1);
+    p.heal(p.getMaxHealth());
 
 	loadLevel(TEST_LEVEL);
 
@@ -65,8 +52,6 @@ void Game::draw(sf::RenderWindow& window) {
 	//Draw the bullets
 	for (GameObject& b : bullets)
 		b.draw(window);
-    for (GameObject& b : enemyBullets)
-		b.draw(window);
 	//Draw enemies
 	for (Enemy& e : enemies)
 		e.draw(window);
@@ -76,9 +61,6 @@ void Game::draw(sf::RenderWindow& window) {
 	//Draw GUI Elements
 	for (sf::Sprite& spr : guiElements)
 		window.draw(spr);
-    for (sf::Text& txt : guiTexts)
-		window.draw(txt);
-    window.draw(healthNumberDisplay);
 }
 
 
@@ -102,7 +84,6 @@ void Game::update(float secondsPassed) {
 			e.loadTexture(ENEMY_TEXTURE);
 			e.setPosition(itr->x + GAME_ZONE_X, itr->y);
 			e.setVelocity(itr->vx, itr->vy);
-			e.linkBullets(&enemyBullets);
 			enemies.push_back(e);
 			itr = spawns.erase(itr);
 		}
@@ -113,34 +94,22 @@ void Game::update(float secondsPassed) {
 	//Update the bullets
 	for (GameObject& b : bullets)
 		b.update(secondsPassed);
-    for (GameObject& b : enemyBullets)
-		b.update(secondsPassed);
 	//Update enemies
 	for (Enemy& e : enemies)
 		e.update(secondsPassed);
-    //Update the healthNumberDisplay
-    stringstream ss;
-    ss << p.getHealth();
-    string healthNum;
-    ss >> healthNum;
-    healthNumberDisplay.setString(healthNum);
 	//Check for bullet collisions
 	for(Enemy& e : enemies) {
 		for (GameObject& b : bullets) {
 			if (e.rectCollide(b)) {
 				b.kill();
+				//Do something with the enemy here
 				e.damage(p.getBulletDamage());
+				break;
 			}
 		}
 	}
 	//What about collisions with enemy bullets?
-    for (GameObject& b : enemyBullets)
-    {
-        if (b.rectCollide(p)) {
-            b.kill();
-            p.damage(BULLET_DAMAGE);
-        }
-    }
+
 	//Or enemies themselves crashing?
     for (Enemy& e : enemies) {
         if (e.rectCollide(p)) {
@@ -150,11 +119,6 @@ void Game::update(float secondsPassed) {
     }
 	//Sweep for out of bounds bullets
 	for (GameObject& b : bullets) {
-		if (b.getX() + b.getWidth() < -GAME_ZONE_PADDING || b.getX() > WINDOW_WIDTH + GAME_ZONE_PADDING
-			|| b.getY() + b.getHeight() < -GAME_ZONE_PADDING || b.getY() > WINDOW_HEIGHT + GAME_ZONE_PADDING)
-			b.kill();
-	}
-	for (GameObject& b : enemyBullets) {
 		if (b.getX() + b.getWidth() < -GAME_ZONE_PADDING || b.getX() > WINDOW_WIDTH + GAME_ZONE_PADDING
 			|| b.getY() + b.getHeight() < -GAME_ZONE_PADDING || b.getY() > WINDOW_HEIGHT + GAME_ZONE_PADDING)
 			b.kill();
@@ -178,12 +142,7 @@ void Game::update(float secondsPassed) {
         else
             itr++;
     }
-    for (list<GameObject>::iterator itr = enemyBullets.begin(); itr != enemyBullets.end(); ) {
-        if (itr->isDead())
-            itr = enemyBullets.erase(itr);
-        else
-            itr++;
-    }
+
 	//Update the player
 	p.update(secondsPassed);
 

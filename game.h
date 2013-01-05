@@ -28,12 +28,9 @@ public:
 private:
 	Player p;
 	list<GameObject> bullets;
-	list<GameObject> enemyBullets;
 	list<SpawnData> spawns;
 	list<Enemy> enemies;
-	vector<sf::Sprite> guiElements;
-	vector<sf::Text> guiTexts;
-	sf::Text healthNumberDisplay;
+	list<sf::Sprite> guiElements;
 	sf::Sprite bg1, bg2, bg3; //Background images
 
 	double gameTime;

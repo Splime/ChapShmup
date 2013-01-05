@@ -7,10 +7,7 @@ Enemy::Enemy() {
 	max_vx = max_vy = MAX_SPEED;
 	screenConstrained = false;
 	maxHealth = health = 10; //TEMPORARY!
-	timeSinceShot = RELOAD_TIME; //TEMP
-    bullets = NULL;
-    shootsBullets = true;
-    reloadTime = RELOAD_TIME;
+
 }
 
 
@@ -18,25 +15,8 @@ Enemy::~Enemy() {
 
 }
 
-void Enemy::linkBullets(list<GameObject>* bulls) {
-	bullets = bulls;
-}
-
 void Enemy::update(float secondsPassed) {
-    //Bullets!
-    if (shootsBullets)
-    {
-        timeSinceShot += secondsPassed;
-        if ( timeSinceShot > reloadTime) {
-            //Spawn a bullet!
-            GameObject b;
-            b.loadTexture(ENEMY_BULLET_TEXTURE);
-            b.setPosition(px + getWidth()/2 - b.getWidth()/2, py + getHeight());
-            b.setVelocity(0, BULLET_SPEED);
-            bullets->push_back(b);
-            timeSinceShot = 0.0;
-        }
-    }
+
 
     GameObject::update(secondsPassed);
 }
