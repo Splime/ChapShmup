@@ -62,6 +62,8 @@ extern string ENEMY_IMAGE;
 extern string SIDEBAR_IMAGE_L, SIDEBAR_IMAGE_R;
 extern string BACKGROUND_IMAGE;
 
+extern string EARTH_IMAGE;
+
 //Textures that get reused a lot:
 extern sf::Texture PLAYER_TEXTURE;
 extern sf::Texture BULLET_TEXTURE;
@@ -69,6 +71,8 @@ extern sf::Texture ENEMY_BULLET_TEXTURE;
 extern sf::Texture ENEMY_TEXTURE;
 extern sf::Texture SIDEBAR_TEXTURE_L, SIDEBAR_TEXTURE_R;
 extern sf::Texture BACKGROUND_TEXTURE;
+
+extern sf::Texture EARTH_TEXTURE;
 
 //Font stuff
 extern string FONT_FILE_1;

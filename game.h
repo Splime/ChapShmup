@@ -31,6 +31,7 @@ private:
 	list<GameObject> enemyBullets;
 	list<SpawnData> spawns;
 	list<Enemy> enemies;
+	list<GameObject> miscObjects;
 	vector<sf::Sprite> guiElements;
 	vector<sf::Text> guiTexts;
 	sf::Text healthNumberDisplay;

@@ -43,11 +43,15 @@ string SIDEBAR_IMAGE_L = "img/sidebar_l.png";
 string SIDEBAR_IMAGE_R = "img/sidebar_r.png";
 string BACKGROUND_IMAGE = "img/game_bg.png";
 
+string EARTH_IMAGE = "img/earth.png";
+
 sf::Texture PLAYER_TEXTURE;
 sf::Texture BULLET_TEXTURE, ENEMY_BULLET_TEXTURE;
 sf::Texture ENEMY_TEXTURE;
 sf::Texture SIDEBAR_TEXTURE_L, SIDEBAR_TEXTURE_R;
 sf::Texture BACKGROUND_TEXTURE;
+
+sf::Texture EARTH_TEXTURE;
 
 string FONT_FILE_1 = "font/neuropolitical rg.otf";
 sf::Font FONT_1;
@@ -66,6 +70,7 @@ void loadGlobalTextures()
 		SIDEBAR_TEXTURE_L.loadFromFile(PROJECT_DIRECTORY + SIDEBAR_IMAGE_L);
 		SIDEBAR_TEXTURE_R.loadFromFile(PROJECT_DIRECTORY + SIDEBAR_IMAGE_R);
 		BACKGROUND_TEXTURE.loadFromFile(PROJECT_DIRECTORY + BACKGROUND_IMAGE);
+		EARTH_TEXTURE.loadFromFile(PROJECT_DIRECTORY + EARTH_IMAGE);
 	}
 	else
 	{
@@ -76,6 +81,7 @@ void loadGlobalTextures()
 		SIDEBAR_TEXTURE_L.loadFromFile(SIDEBAR_IMAGE_L);
 		SIDEBAR_TEXTURE_R.loadFromFile(SIDEBAR_IMAGE_R);
 		BACKGROUND_TEXTURE.loadFromFile(BACKGROUND_IMAGE);
+		EARTH_TEXTURE.loadFromFile(EARTH_IMAGE);
 	}
 }
 

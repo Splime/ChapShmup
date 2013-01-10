@@ -59,6 +59,7 @@ void Game::start() {
     enemyBullets.clear();
     enemies.clear();
     spawns.clear();
+    miscObjects.clear();
     p.setPosition(400, 500);
     p.heal(-1);
 
@@ -73,6 +74,9 @@ void Game::draw(sf::RenderWindow& window) {
 	window.draw(bg1);
 	window.draw(bg2);
 	window.draw(bg3);
+	//Misc Objects
+	for (GameObject& obj : miscObjects)
+        obj.draw(window);
 	//Draw the bullets
 	for (GameObject& b : bullets)
 		b.draw(window);
@@ -106,17 +110,32 @@ void Game::update(float secondsPassed) {
 		bg2.move(0, -GAME_ZONE_HEIGHT*3);
 	if (bg3.getPosition().y > GAME_ZONE_Y + GAME_ZONE_HEIGHT)
 		bg3.move(0, -GAME_ZONE_HEIGHT*3);
+    //Misc Objects
+    for (GameObject& obj : miscObjects)
+		obj.update(secondsPassed);
 	//Deal with new spawns
 	for (list<SpawnData>::iterator itr = spawns.begin(); itr != spawns.end(); ) {
 		if (itr->spawnTime < gameTime) {
-			//Add an enemy
-			Enemy e;
-			e.loadTexture(ENEMY_TEXTURE);
-			e.setPosition(itr->x + GAME_ZONE_X, itr->y);
-			e.setVelocity(itr->vx, itr->vy);
-			e.linkBullets(&enemyBullets);
-			enemies.push_back(e);
-			itr = spawns.erase(itr);
+            //Check the spawn type first!
+            if (itr->spawnType == "earth")
+            {
+                GameObject planet;
+                planet.loadTexture(EARTH_TEXTURE);
+                planet.setPosition(itr->x + GAME_ZONE_X, itr->y);
+                planet.setVelocity(itr->vx, itr->vy);
+                miscObjects.push_back(planet);
+            }
+            else
+            {
+                //Add an enemy
+                Enemy e;
+                e.loadTexture(ENEMY_TEXTURE);
+                e.setPosition(itr->x + GAME_ZONE_X, itr->y);
+                e.setVelocity(itr->vx, itr->vy);
+                e.linkBullets(&enemyBullets);
+                enemies.push_back(e);
+            }
+            itr = spawns.erase(itr);
 		}
 		//The list is ordered, so break if it's not spawn time yet
 		else
@@ -181,6 +200,12 @@ void Game::update(float secondsPassed) {
 			|| e.getY() + e.getHeight() < -GAME_ZONE_PADDING || e.getY() > WINDOW_HEIGHT + GAME_ZONE_PADDING)
 			e.kill();
 	}
+	//...And Misc Objects (Horrible copypasta)
+	for (GameObject& b : miscObjects) {
+		if (b.getX() + b.getWidth() < -GAME_ZONE_PADDING || b.getX() > WINDOW_WIDTH + GAME_ZONE_PADDING
+			|| b.getY() + b.getHeight() < -GAME_ZONE_PADDING || b.getY() > WINDOW_HEIGHT + GAME_ZONE_PADDING)
+			b.kill();
+	}
 	//Garbage Collection!
     for(list<Enemy>::iterator eitr = enemies.begin(); eitr != enemies.end(); ) {
         if(eitr->isDead())
@@ -197,6 +222,12 @@ void Game::update(float secondsPassed) {
     for (list<GameObject>::iterator itr = enemyBullets.begin(); itr != enemyBullets.end(); ) {
         if (itr->isDead())
             itr = enemyBullets.erase(itr);
+        else
+            itr++;
+    }
+    for (list<GameObject>::iterator itr = miscObjects.begin(); itr != miscObjects.end(); ) {
+        if (itr->isDead())
+            itr = miscObjects.erase(itr);
         else
             itr++;
     }
