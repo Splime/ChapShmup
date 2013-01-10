@@ -93,7 +93,15 @@ int main() {
 				if (GAME_MODE == "Main Menu")
 				{
 					//Buttons!
-					if (mouseWithin(playButton.text))
+					if (mouseWithin(newGameButton.text))
+					{
+						GAME_MODE = "New Game";
+					}
+					else if (mouseWithin(loadGameButton.text))
+					{
+						GAME_MODE = "Load Game";
+					}
+					else if (mouseWithin(playButton.text))
 					{
 						GAME_MODE = "Play Level";
 						theGame.start();
@@ -163,6 +171,26 @@ int main() {
 			backButton.draw(mainWindow);
 			mainWindow.display();
 		}
+		else if (GAME_MODE == "New Game")
+        {
+            //Update
+
+
+            //Draw
+            mainWindow.clear();
+            mainWindow.draw(splashBox);
+            mainWindow.display();
+        }
+        else if (GAME_MODE == "Load Game")
+        {
+            //Update
+
+
+            //Draw
+            mainWindow.clear();
+            mainWindow.draw(splashBox);
+            mainWindow.display();
+        }
 
 		//Try to keep approx 60 fps
 		sf::Time timeToPause = sf::milliseconds(16) - frameClock.getElapsedTime();
