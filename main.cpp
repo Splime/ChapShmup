@@ -32,18 +32,26 @@ int main() {
 	else
 		splashTex.loadFromFile(SPLASH_IMAGE);
 	sf::Sprite splashBox(splashTex);
-	//Play Button
-    TextButton playButton("Play Level", 64, sf::Color::Green);
+	//New Game
+	TextButton newGameButton("New Game", 64, sf::Color::Green);
+    newGameButton.setSelectedColor(sf::Color::Red);
+    newGameButton.text.setPosition(WINDOW_WIDTH/2 - newGameButton.text.getGlobalBounds().width/2, 160);
+	//Load Game
+	TextButton loadGameButton("Load Game", 64, sf::Color::Green);
+    loadGameButton.setSelectedColor(sf::Color::Red);
+    loadGameButton.text.setPosition(WINDOW_WIDTH/2 - loadGameButton.text.getGlobalBounds().width/2, 260);
+	//Instant Play
+    TextButton playButton("Instant Play", 64, sf::Color::Green);
     playButton.setSelectedColor(sf::Color::Red);
-    playButton.text.setPosition(WINDOW_WIDTH/2 - playButton.text.getGlobalBounds().width/2, 260);
+    playButton.text.setPosition(WINDOW_WIDTH/2 - playButton.text.getGlobalBounds().width/2, 360);
 	//Settings Button
 	TextButton settingsButton("Settings", 64, sf::Color::Green);
 	settingsButton.setSelectedColor(sf::Color::Red);
-    settingsButton.text.setPosition(WINDOW_WIDTH/2 - settingsButton.text.getGlobalBounds().width/2, 360);
+    settingsButton.text.setPosition(WINDOW_WIDTH/2 - settingsButton.text.getGlobalBounds().width/2, 460);
 	//Quit Button
 	TextButton quitButton("Quit Game", 64, sf::Color::Green);
 	quitButton.setSelectedColor(sf::Color::Red);
-    quitButton.text.setPosition(WINDOW_WIDTH/2 - quitButton.text.getGlobalBounds().width/2, 460);
+    quitButton.text.setPosition(WINDOW_WIDTH/2 - quitButton.text.getGlobalBounds().width/2, 560);
 	//Logo
 	sf::Text logo = createText("Chap Shmup", 96, sf::Color::Green);
 	logo.setPosition(WINDOW_WIDTH/2 - logo.getGlobalBounds().width/2, 16);
@@ -115,12 +123,16 @@ int main() {
 		    playButton.update(elapsedTime.asSeconds());
 		    settingsButton.update(elapsedTime.asSeconds());
 		    quitButton.update(elapsedTime.asSeconds());
+		    newGameButton.update(elapsedTime.asSeconds());
+		    loadGameButton.update(elapsedTime.asSeconds());
 
 		    //Drawing
 			mainWindow.clear();
 			playButton.draw(mainWindow);
 			settingsButton.draw(mainWindow);
 			quitButton.draw(mainWindow);
+			loadGameButton.draw(mainWindow);
+			newGameButton.draw(mainWindow);
 			mainWindow.draw(logo);
 			mainWindow.display();
 		}
