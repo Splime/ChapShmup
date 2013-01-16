@@ -53,9 +53,9 @@ sf::Texture BACKGROUND_TEXTURE;
 
 sf::Texture EARTH_TEXTURE;
 
-string FONT_FILE_1 = "font/Another X Display tfb.ttf";
+string FONT_FILE_1 = "font/LiquidCrystal-Normal.otf";
 sf::Font FONT_1;
-string FONT_FILE_2 = "font/karmatic arcade.ttf";
+string FONT_FILE_2 = "font/transuranium.ttf";
 sf::Font FONT_2;
 
 string TEST_LEVEL = "data/test_lvl.txt";
