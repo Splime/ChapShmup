@@ -54,3 +54,4 @@ In addition to previous stuff on the TODO list, we should add:
 - Player gun that shoots faster, but has overheat
 - TitanMart
 - ANIMATION!
+- Shorter Levels

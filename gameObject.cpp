@@ -6,6 +6,8 @@ GameObject::GameObject(void) {
 	max_vx = max_vy = MAX_SPEED;
 	screenConstrained = false;
 
+	timed = false;
+
 	dead = false;
 }
 
@@ -71,34 +73,54 @@ void GameObject::update(float timePassed) {
 
 		setPosition(px, py);
 	}
+
+	//Adjust timer
+	if (timed)
+    {
+        timeLeft -= timePassed;
+        if (timeLeft < 0.0f)
+            dead = true;
+    }
 }
 
-void GameObject::draw(sf::RenderWindow& window) {
+void GameObject::draw(sf::RenderWindow& window)
+{
 	window.draw(sprite);
 }
 
-void GameObject::loadImageFile(string filename) {
+void GameObject::loadImageFile(string filename)
+{
 	texture.loadFromFile(filename);
 	sprite.setTexture(texture);
 }
 
-void GameObject::loadTexture(sf::Texture& tex) {
+void GameObject::loadTexture(sf::Texture& tex)
+{
 	sprite.setTexture(tex);
 }
 
-void GameObject::setVelocity(float x, float y) {
+void GameObject::setVelocity(float x, float y)
+{
 	vx = x;
 	vy = y;
 }
 
-void GameObject::setAcceleration(float x, float y) {
+void GameObject::setAcceleration(float x, float y)
+{
 	ax = x;
 	ay = y;
 }
 
-void GameObject::setPosition(float x, float y) {
+void GameObject::setPosition(float x, float y)
+{
 	px = x; py = y;
 	sprite.setPosition((int)x, (int)y);
+}
+
+void GameObject::setTimer(float seconds)
+{
+    timed = true;
+    timeLeft = seconds;
 }
 
 bool GameObject::rectCollide(GameObject& other) {

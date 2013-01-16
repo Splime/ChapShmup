@@ -14,6 +14,7 @@ public:
 	void setVelocity(float x, float y);
 	void setAcceleration(float x, float y);
 	void setPosition(float x, float y);
+	void setTimer(float seconds);
 	void kill() { dead = true; }
 
 	float getX() { return px; }
@@ -31,6 +32,9 @@ protected:
 	float ax, ay; //Acceleration, x and y components
 	float px, py; //Position
 	bool screenConstrained;
+
+	bool timed;
+	float timeLeft;
 
 	bool dead;
 };
