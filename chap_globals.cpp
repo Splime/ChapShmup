@@ -34,7 +34,7 @@ string PROJECT_DIRECTORY = "C:/Users/gruarm/GitHub/ChapShmup/"; //Desktop
 //string PROJECT_DIRECTORY = "D:/Documents/Projects/ChapShmup/"; //Laptop
 bool EXTERNAL_FILE_MODE = true;
 
-string PLAYER_IMAGE = "img/rocket.png";
+string PLAYER_IMAGE = "img/player.png";
 string SPLASH_IMAGE = "img/menu.png";
 string BULLET_IMAGE = "img/bullet.png";
 string ENEMY_BULLET_IMAGE = "img/enemy_bullet.png";
