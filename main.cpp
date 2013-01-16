@@ -4,8 +4,11 @@
 
 #include "chap_header.h"
 #include "game.h"
+#include "metaGame.h"
 #include "gameObject.h"
 #include "textButton.h"
+
+MetaGame metaGameInfo;
 
 int main() {
     //RNG
@@ -13,7 +16,6 @@ int main() {
 
 	//Load up our textures
 	loadGlobalTextures();
-
 	//Load Our Font
 	loadGlobalFonts();
 
@@ -69,17 +71,20 @@ int main() {
 
     //New Game Screen
     //Title
-    sf::Text newGameTitle = createText("2:13 AM, 21 December, 2712", 64, sf::Color::Green);
+    sf::Text newGameTitle = createText("New Game", 96, sf::Color::Green, FONT_2);
 	newGameTitle.setPosition(WINDOW_WIDTH/2 - newGameTitle.getGlobalBounds().width/2, 16);
 	//Story Blurb
+	sf::Text storyText = createText("2:00am, 21 Dec 2712", 32, sf::Color::Green);
+	storyText.setPosition(WINDOW_WIDTH/4 - storyText.getGlobalBounds().width/2, 160);
 
 	//Character Input
 	sf::Text charInputText = createText("Character Info:", 32, sf::Color::Green);
 	charInputText.setPosition(3*WINDOW_WIDTH/4 - charInputText.getGlobalBounds().width/2, 160);
 	sf::Text nameInputText = createText("Your Name:", 32, sf::Color::Green);
 	nameInputText.setPosition(3*WINDOW_WIDTH/4 - nameInputText.getGlobalBounds().width, 260);
+
 	//Next Button
-	TextButton nextButton("Next", 32, sf::Color::Green);
+	TextButton nextButton("Next", 64, sf::Color::Green);
 	nextButton.setSelectedColor(sf::Color::Red);
     nextButton.text.setPosition(WINDOW_WIDTH/2 - nextButton.text.getGlobalBounds().width/2, 560);
 
@@ -203,6 +208,7 @@ int main() {
             //Draw
             mainWindow.clear();
             mainWindow.draw(newGameTitle);
+            mainWindow.draw(storyText);
             mainWindow.draw(charInputText);
             mainWindow.draw(nameInputText);
             nextButton.draw(mainWindow);

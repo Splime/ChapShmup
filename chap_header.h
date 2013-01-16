@@ -11,9 +11,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
-//#include "game.h"
-//#include "gameObject.h"
-
 #pragma once
 using std::cout;
 using std::string;

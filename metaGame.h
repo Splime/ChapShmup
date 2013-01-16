@@ -5,6 +5,17 @@
  #pragma once
  #include "chap_header.h"
 
+ struct GameTime
+ {
+    int hour;
+    int minute;
+    float seconds;
+
+    int day;
+    int month;
+    int year;
+ };
+
  class MetaGame
  {
  public:
@@ -12,8 +23,10 @@
     ~MetaGame();
 
  private:
-
+    GameTime theTime;
 
 
 
  };
+
+
