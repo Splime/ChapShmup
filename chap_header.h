@@ -52,6 +52,7 @@ extern bool EXTERNAL_FILE_MODE;
 
 //Graphics files
 extern string PLAYER_IMAGE;
+extern string FLAME_IMAGE;
 extern string SPLASH_IMAGE;
 extern string BULLET_IMAGE;
 extern string ENEMY_BULLET_IMAGE;
@@ -63,6 +64,7 @@ extern string EARTH_IMAGE;
 
 //Textures that get reused a lot:
 extern sf::Texture PLAYER_TEXTURE;
+extern sf::Texture FLAME_TEXTURE;
 extern sf::Texture BULLET_TEXTURE;
 extern sf::Texture ENEMY_BULLET_TEXTURE;
 extern sf::Texture ENEMY_TEXTURE;

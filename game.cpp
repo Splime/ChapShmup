@@ -77,6 +77,8 @@ void Game::draw(sf::RenderWindow& window) {
 	//Misc Objects
 	for (GameObject& obj : miscObjects)
         obj.draw(window);
+    //Draw the player
+	p.draw(window);
 	//Draw the bullets
 	for (GameObject& b : bullets)
 		b.draw(window);
@@ -85,8 +87,6 @@ void Game::draw(sf::RenderWindow& window) {
 	//Draw enemies
 	for (Enemy& e : enemies)
 		e.draw(window);
-	//Draw the player
-	p.draw(window);
 
 	//Draw GUI Elements
 	for (sf::Sprite& spr : guiElements)

@@ -35,6 +35,7 @@ string PROJECT_DIRECTORY = "C:/Users/gruarm/GitHub/ChapShmup/"; //Desktop
 bool EXTERNAL_FILE_MODE = true;
 
 string PLAYER_IMAGE = "img/player.png";
+string FLAME_IMAGE = "img/flame.png";
 string SPLASH_IMAGE = "img/menu.png";
 string BULLET_IMAGE = "img/bullet.png";
 string ENEMY_BULLET_IMAGE = "img/enemy_bullet.png";
@@ -46,6 +47,7 @@ string BACKGROUND_IMAGE = "img/game_bg.png";
 string EARTH_IMAGE = "img/earth.png";
 
 sf::Texture PLAYER_TEXTURE;
+sf::Texture FLAME_TEXTURE;
 sf::Texture BULLET_TEXTURE, ENEMY_BULLET_TEXTURE;
 sf::Texture ENEMY_TEXTURE;
 sf::Texture SIDEBAR_TEXTURE_L, SIDEBAR_TEXTURE_R;
@@ -68,6 +70,7 @@ void loadGlobalTextures()
 		BULLET_TEXTURE.loadFromFile(PROJECT_DIRECTORY + BULLET_IMAGE);
 		ENEMY_BULLET_TEXTURE.loadFromFile(PROJECT_DIRECTORY + ENEMY_BULLET_IMAGE);
 		PLAYER_TEXTURE.loadFromFile(PROJECT_DIRECTORY + PLAYER_IMAGE);
+		FLAME_TEXTURE.loadFromFile(PROJECT_DIRECTORY + FLAME_IMAGE);
 		ENEMY_TEXTURE.loadFromFile(PROJECT_DIRECTORY + ENEMY_IMAGE);
 		SIDEBAR_TEXTURE_L.loadFromFile(PROJECT_DIRECTORY + SIDEBAR_IMAGE_L);
 		SIDEBAR_TEXTURE_R.loadFromFile(PROJECT_DIRECTORY + SIDEBAR_IMAGE_R);
@@ -79,6 +82,7 @@ void loadGlobalTextures()
 	    ENEMY_BULLET_TEXTURE.loadFromFile(ENEMY_BULLET_IMAGE);
 		BULLET_TEXTURE.loadFromFile(BULLET_IMAGE);
 		PLAYER_TEXTURE.loadFromFile(PLAYER_IMAGE);
+		FLAME_TEXTURE.loadFromFile(FLAME_IMAGE);
 		ENEMY_TEXTURE.loadFromFile(ENEMY_IMAGE);
 		SIDEBAR_TEXTURE_L.loadFromFile(SIDEBAR_IMAGE_L);
 		SIDEBAR_TEXTURE_R.loadFromFile(SIDEBAR_IMAGE_R);

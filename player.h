@@ -11,6 +11,7 @@ public:
 
 	void linkBullets(list<GameObject>* bulls); //Gives the player access to the list of bullets
 	virtual void update(float secondsPassed);
+	virtual void draw(sf::RenderWindow& window);
 	void damage(float hurt);
 	void heal(float healer);
 
@@ -23,6 +24,7 @@ private:
 	float timeSinceShot;
 	float maxHealth, health;
 	float bulletDamage;
+	sf::Sprite flame1, flame2, flameR, flameL;
 
 };
 
