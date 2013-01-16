@@ -49,4 +49,8 @@ Done so far:
 - Shitty planet earth implemented
 - New game screen on its way
 
-In addition to previous stuff on the TODO list, we should implement a class for simple text screens
+In addition to previous stuff on the TODO list, we should add:
+- Pickups from shot-down enemies
+- Player gun that shoots faster, but has overheat
+- TitanMart
+- ANIMATION!

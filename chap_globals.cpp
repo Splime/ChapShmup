@@ -40,6 +40,7 @@ string SPLASH_IMAGE = "img/menu.png";
 string BULLET_IMAGE = "img/bullet.png";
 string ENEMY_BULLET_IMAGE = "img/enemy_bullet.png";
 string ENEMY_IMAGE = "img/enemy.png";
+string ASTEROID_IMAGE = "img/asteroid.png";
 string SIDEBAR_IMAGE_L = "img/sidebar_l.png";
 string SIDEBAR_IMAGE_R = "img/sidebar_r.png";
 string BACKGROUND_IMAGE = "img/game_bg.png";
@@ -50,6 +51,7 @@ sf::Texture PLAYER_TEXTURE;
 sf::Texture FLAME_TEXTURE;
 sf::Texture BULLET_TEXTURE, ENEMY_BULLET_TEXTURE;
 sf::Texture ENEMY_TEXTURE;
+sf::Texture ASTEROID_TEXTURE;
 sf::Texture SIDEBAR_TEXTURE_L, SIDEBAR_TEXTURE_R;
 sf::Texture BACKGROUND_TEXTURE;
 
@@ -72,6 +74,7 @@ void loadGlobalTextures()
 		PLAYER_TEXTURE.loadFromFile(PROJECT_DIRECTORY + PLAYER_IMAGE);
 		FLAME_TEXTURE.loadFromFile(PROJECT_DIRECTORY + FLAME_IMAGE);
 		ENEMY_TEXTURE.loadFromFile(PROJECT_DIRECTORY + ENEMY_IMAGE);
+		ASTEROID_TEXTURE.loadFromFile(PROJECT_DIRECTORY + ASTEROID_IMAGE);
 		SIDEBAR_TEXTURE_L.loadFromFile(PROJECT_DIRECTORY + SIDEBAR_IMAGE_L);
 		SIDEBAR_TEXTURE_R.loadFromFile(PROJECT_DIRECTORY + SIDEBAR_IMAGE_R);
 		BACKGROUND_TEXTURE.loadFromFile(PROJECT_DIRECTORY + BACKGROUND_IMAGE);
@@ -84,6 +87,7 @@ void loadGlobalTextures()
 		PLAYER_TEXTURE.loadFromFile(PLAYER_IMAGE);
 		FLAME_TEXTURE.loadFromFile(FLAME_IMAGE);
 		ENEMY_TEXTURE.loadFromFile(ENEMY_IMAGE);
+		ASTEROID_TEXTURE.loadFromFile(ASTEROID_IMAGE);
 		SIDEBAR_TEXTURE_L.loadFromFile(SIDEBAR_IMAGE_L);
 		SIDEBAR_TEXTURE_R.loadFromFile(SIDEBAR_IMAGE_R);
 		BACKGROUND_TEXTURE.loadFromFile(BACKGROUND_IMAGE);

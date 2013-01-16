@@ -141,10 +141,19 @@ void Game::update(float secondsPassed) {
                 //Add an enemy
                 Enemy e;
                 if (itr->spawnSubType == "raider")
+                {
                     e.loadTexture(ENEMY_TEXTURE);
+                    e.setBulletMode(true);
+                    e.linkBullets(&enemyBullets);
+                }
+                else if (itr->spawnSubType == "asteroid")
+                {
+                    e.loadTexture(ASTEROID_TEXTURE);
+                    e.setBulletMode(false);
+                }
+                e.setType(itr->spawnSubType);
                 e.setPosition(itr->x + GAME_ZONE_X, itr->y);
                 e.setVelocity(itr->vx, itr->vy);
-                e.linkBullets(&enemyBullets);
                 enemies.push_back(e);
                 itr = spawns.erase(itr);
             }

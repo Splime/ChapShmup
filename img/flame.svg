@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="flame.svg"
+   inkscape:export-filename="C:\Users\gruarm\GitHub\ChapShmup\img\flame.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -73,6 +76,8 @@
        id="path3757"
        inkscape:connector-curvature="0"
        transform="translate(0,1036.3622)"
-       sodipodi:nodetypes="ssscsss" />
+       sodipodi:nodetypes="ssscsss"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

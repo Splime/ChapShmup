@@ -12,10 +12,14 @@ public:
     void damage(float hurt);
     void linkBullets(list<GameObject>* bulls); //Gives the enemy access to the list of bullets
 
+    void setType(string t) { type = t; }
+    void setBulletMode(bool toggle) { shootsBullets = toggle; }
+
     float getHealth() { return health; }
 	float getMaxHealth() { return maxHealth; }
 
 private:
+    string type;
     float health, maxHealth;
     list<GameObject>* bullets;
 	float timeSinceShot;
