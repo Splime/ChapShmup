@@ -117,25 +117,38 @@ void Game::update(float secondsPassed) {
 	for (list<SpawnData>::iterator itr = spawns.begin(); itr != spawns.end(); ) {
 		if (itr->spawnTime < gameTime) {
             //Check the spawn type first!
-            if (itr->spawnType == "earth")
+            if (itr->spawnType == "planet")
+            {
+                GameObject planet;
+                if (itr->spawnSubType == "earth")
+                    planet.loadTexture(EARTH_TEXTURE);
+                planet.setPosition(itr->x + GAME_ZONE_X, itr->y);
+                planet.setVelocity(itr->vx, itr->vy);
+                miscObjects.push_back(planet);
+                itr = spawns.erase(itr);
+            }
+            else if (itr->spawnType == "store")
             {
                 GameObject planet;
                 planet.loadTexture(EARTH_TEXTURE);
                 planet.setPosition(itr->x + GAME_ZONE_X, itr->y);
                 planet.setVelocity(itr->vx, itr->vy);
                 miscObjects.push_back(planet);
+                itr = spawns.erase(itr);
             }
-            else
+            else if (itr->spawnType == "enemy")
             {
                 //Add an enemy
                 Enemy e;
-                e.loadTexture(ENEMY_TEXTURE);
+                if (itr->spawnSubType == "raider")
+                    e.loadTexture(ENEMY_TEXTURE);
                 e.setPosition(itr->x + GAME_ZONE_X, itr->y);
                 e.setVelocity(itr->vx, itr->vy);
                 e.linkBullets(&enemyBullets);
                 enemies.push_back(e);
+                itr = spawns.erase(itr);
             }
-            itr = spawns.erase(itr);
+
 		}
 		//The list is ordered, so break if it's not spawn time yet
 		else
@@ -251,6 +264,7 @@ void Game::loadLevel(string filename) {
 	while (!level.eof()) {
 		SpawnData entry;
 		level >> entry.spawnType;
+		level >> entry.spawnSubType;
 		//For more complicated stuff, this is where we need some if statements!
 		level >> entry.spawnTime;
 		level >> entry.x;

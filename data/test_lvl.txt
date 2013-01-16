@@ -1,15 +1,15 @@
-120
-earth 0 0 0 0 50
-raider 5 350 -100 0 100
-raider 5 450 -100 0 100
-raider 15 350 -100 0 100
-raider 15 450 -100 0 100
-raider 25 400 -100 0 100
-raider 25 100 -100 0 100
-raider 25 700 -100 0 100
-raider 30 250 -100 0 100
-raider 30 550 -100 0 100
-raider 40 100 -100 0 100
-raider 40 200 -100 0 100
-raider 45 600 -100 0 100
-raider 45 700 -100 0 100
+180
+planet earth 0 0 0 0 50
+enemy raider 5 350 -100 0 100
+enemy raider 5 450 -100 0 100
+enemy raider 15 350 -100 0 100
+enemy raider 15 450 -100 0 100
+enemy raider 25 400 -100 0 100
+enemy raider 25 100 -100 0 100
+enemy raider 25 700 -100 0 100
+enemy raider 30 250 -100 0 100
+enemy raider 30 550 -100 0 100
+enemy raider 40 100 -100 0 100
+enemy raider 40 200 -100 0 100
+enemy raider 45 600 -100 0 100
+enemy raider 45 700 -100 0 100

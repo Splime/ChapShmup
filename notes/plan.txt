@@ -41,3 +41,12 @@ Still TODO:
 - Collision boxes: tweak the enemies/game objects so that their collision area can be a bit smaller than their image rect, or allow multiple rects?
 - Metagame: Story, Upgrades, Inventory, Load/Save
 - External Filemode: Fix this monstrosity
+
+=== Jan 15, 2013 ===
+
+Done so far:
+- Enemy presets on their way (programmed into the level file format)
+- Shitty planet earth implemented
+- New game screen on its way
+
+In addition to previous stuff on the TODO list, we should implement a class for simple text screens
