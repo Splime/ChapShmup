@@ -65,7 +65,23 @@ int main() {
 	//Back
 	TextButton backButton("Back", 64, sf::Color::Green);
 	backButton.setSelectedColor(sf::Color::Red);
-    backButton.text.setPosition(WINDOW_WIDTH/2 - backButton.text.getGlobalBounds().width/2, 460);
+    backButton.text.setPosition(WINDOW_WIDTH/2 - backButton.text.getGlobalBounds().width/2, 560);
+
+    //New Game Screen
+    //Title
+    sf::Text newGameTitle = createText("2:13 AM, 21 December, 2712", 64, sf::Color::Green);
+	newGameTitle.setPosition(WINDOW_WIDTH/2 - newGameTitle.getGlobalBounds().width/2, 16);
+	//Story Blurb
+
+	//Character Input
+	sf::Text charInputText = createText("Character Info:", 32, sf::Color::Green);
+	charInputText.setPosition(3*WINDOW_WIDTH/4 - charInputText.getGlobalBounds().width/2, 160);
+	sf::Text nameInputText = createText("Your Name:", 32, sf::Color::Green);
+	nameInputText.setPosition(3*WINDOW_WIDTH/4 - nameInputText.getGlobalBounds().width, 260);
+	//Next Button
+	TextButton nextButton("Next", 32, sf::Color::Green);
+	nextButton.setSelectedColor(sf::Color::Red);
+    nextButton.text.setPosition(WINDOW_WIDTH/2 - nextButton.text.getGlobalBounds().width/2, 560);
 
 	//Run the window
 	while (mainWindow.isOpen()) {
@@ -122,6 +138,14 @@ int main() {
 						GAME_MODE = "Main Menu";
 					}
                 }
+                else if (GAME_MODE == "New Game")
+                {
+                    if (mouseWithin((nextButton.text)))
+                    {
+                        GAME_MODE = "Play Level";
+						theGame.start();
+                    }
+                }
 			}
 		}
 		//GAME_MODE: Main Menu
@@ -174,11 +198,14 @@ int main() {
 		else if (GAME_MODE == "New Game")
         {
             //Update
-
+            nextButton.update(elapsedTime.asSeconds());
 
             //Draw
             mainWindow.clear();
-            mainWindow.draw(splashBox);
+            mainWindow.draw(newGameTitle);
+            mainWindow.draw(charInputText);
+            mainWindow.draw(nameInputText);
+            nextButton.draw(mainWindow);
             mainWindow.display();
         }
         else if (GAME_MODE == "Load Game")
