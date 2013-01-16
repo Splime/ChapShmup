@@ -53,8 +53,10 @@ sf::Texture BACKGROUND_TEXTURE;
 
 sf::Texture EARTH_TEXTURE;
 
-string FONT_FILE_1 = "font/neuropolitical rg.otf";
+string FONT_FILE_1 = "font/Another X Display tfb.ttf";
 sf::Font FONT_1;
+string FONT_FILE_2 = "font/karmatic arcade.ttf";
+sf::Font FONT_2;
 
 string TEST_LEVEL = "data/test_lvl.txt";
 
@@ -89,9 +91,11 @@ void loadGlobalFonts() {
     if (EXTERNAL_FILE_MODE)
 	{
 	    FONT_1.loadFromFile(PROJECT_DIRECTORY + FONT_FILE_1);
+	    FONT_2.loadFromFile(PROJECT_DIRECTORY + FONT_FILE_2);
 	}
 	else{
         FONT_1.loadFromFile(FONT_FILE_1);
+        FONT_2.loadFromFile(FONT_FILE_2);
 	}
 }
 
@@ -109,11 +113,15 @@ bool mouseWithin(sf::Text tex) {
 		&& y > tex.getPosition().y && y < tex.getPosition().y + tex.getGlobalBounds().height;
 }
 
-sf::Text createText(string txt, int charSize, sf::Color color) {
+sf::Text createText(string txt, int charSize, sf::Color color, sf::Font& font) {
     sf::Text text;
     text.setString(txt);
     text.setCharacterSize(charSize);
     text.setColor(color);
-    text.setFont(FONT_1);
+    text.setFont(font);
     return text;
+}
+
+sf::Text createText(string txt, int charSize, sf::Color color) {
+    return createText(txt, charSize, color, FONT_1);
 }

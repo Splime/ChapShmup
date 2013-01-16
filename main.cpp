@@ -53,12 +53,12 @@ int main() {
 	quitButton.setSelectedColor(sf::Color::Red);
     quitButton.text.setPosition(WINDOW_WIDTH/2 - quitButton.text.getGlobalBounds().width/2, 560);
 	//Logo
-	sf::Text logo = createText("Chap Shmup", 96, sf::Color::Green);
+	sf::Text logo = createText("Chap Shmup", 96, sf::Color::Green, FONT_2);
 	logo.setPosition(WINDOW_WIDTH/2 - logo.getGlobalBounds().width/2, 16);
 
 	//Settings Screen
 	//Title
-	sf::Text settingsTitle = createText("Settings", 96, sf::Color::Green);
+	sf::Text settingsTitle = createText("Settings", 96, sf::Color::Green, FONT_2);
 	settingsTitle.setPosition(WINDOW_WIDTH/2 - settingsTitle.getGlobalBounds().width/2, 16);
 	//TODO
 	//Actual Settings

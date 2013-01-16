@@ -77,6 +77,8 @@ extern sf::Texture EARTH_TEXTURE;
 //Font stuff
 extern string FONT_FILE_1;
 extern sf::Font FONT_1;
+extern string FONT_FILE_2;
+extern sf::Font FONT_2;
 
 //Level Data
 extern string TEST_LEVEL;
@@ -87,3 +89,4 @@ void loadGlobalFonts();
 bool mouseWithin(sf::Sprite spr);
 bool mouseWithin(sf::Text tex);
 sf::Text createText(string txt, int charSize, sf::Color color);
+sf::Text createText(string txt, int charSize, sf::Color color, sf::Font& font);
