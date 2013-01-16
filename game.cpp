@@ -79,14 +79,14 @@ void Game::draw(sf::RenderWindow& window) {
         obj.draw(window);
     //Draw the player
 	p.draw(window);
+		//Draw enemies
+	for (Enemy& e : enemies)
+		e.draw(window);
 	//Draw the bullets
 	for (GameObject& b : bullets)
 		b.draw(window);
     for (GameObject& b : enemyBullets)
 		b.draw(window);
-	//Draw enemies
-	for (Enemy& e : enemies)
-		e.draw(window);
 
 	//Draw GUI Elements
 	for (sf::Sprite& spr : guiElements)

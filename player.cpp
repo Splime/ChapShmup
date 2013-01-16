@@ -116,8 +116,8 @@ void Player::draw(sf::RenderWindow& window)
 
     float sideFlame_yR = sprite.getPosition().y + sprite.getGlobalBounds().height + flameL.getGlobalBounds().height - 16;
     float sideFlame_yL = sprite.getPosition().y + sprite.getGlobalBounds().height - 16;
-    float flame_xL = sprite.getPosition().x - flameL.getGlobalBounds().width + flameL.getGlobalBounds().width;
-    float flame_xR = sprite.getPosition().x + sprite.getGlobalBounds().width;
+    float flame_xL = sprite.getPosition().x - flameL.getGlobalBounds().width + flameL.getGlobalBounds().width + 4;
+    float flame_xR = sprite.getPosition().x + sprite.getGlobalBounds().width - 4;
     flameL.setPosition(flame_xL, sideFlame_yL);
     flameR.setPosition(flame_xR, sideFlame_yR);
 

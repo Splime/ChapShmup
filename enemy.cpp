@@ -31,7 +31,7 @@ void Enemy::update(float secondsPassed) {
             //Spawn a bullet!
             GameObject b;
             b.loadTexture(ENEMY_BULLET_TEXTURE);
-            b.setPosition(px + getWidth()/2 - b.getWidth()/2, py + getHeight());
+            b.setPosition(px + getWidth()/2 - b.getWidth()/2, py + getHeight() - 8);
             b.setVelocity(0, ENEMY_BULLET_SPEED);
             bullets->push_back(b);
             timeSinceShot = 0.0 + (rand()%10)/100.0;
